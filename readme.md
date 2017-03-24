@@ -33,6 +33,12 @@ $ npm install
 $ ionic serve
 ```
 
+## Screenshots
+![Login page](/screenshots/login.jpg?raw=true "Login page")
+![Register page](/screenshots/register.jpg?raw=true "Register page")
+![Forgot Password page](/screenshots/forgot-pass.jpg?raw=true "Forgot Password page")
+![Home page](/screenshots/home.jpg?raw=true "Home page")
+
 
 > This starter use last Ionic 2 version
 ```sh
@@ -42,3 +48,4 @@ Ionic CLI Version: 2.2.1
 Ionic App Lib Version: 2.2.0
 Ionic App Scripts Version: 1.1.4
 ```
+
