@@ -2,11 +2,12 @@ import { Component } from '@angular/core';
 import { NavController, NavParams, LoadingController } from 'ionic-angular';
 
 @Component({
-  selector:    'page-register',
-  templateUrl: 'register.html'
+  selector:    'page-forgot-pass',
+  templateUrl: 'forgot-pass.html'
 })
-export class RegisterPage {
+export class ForgotPassPage {
   public formData: any;
+
   constructor(
     public navCtrl:     NavController,
     public navParams:   NavParams,
@@ -18,14 +19,14 @@ export class RegisterPage {
   ionViewDidLoad() {
   }
 
-  // REGISTER TASKS
-  register(){
+  // RESET PASSWORD TASTS
+  resetPass(){
     // TODO
     let loader = this.loadingCtrl.create();
     loader.present();
 
-    // IF SUCCESS RETURN TO LOGIN PAGE
-    setTimeout(() => {  //  THIS TIMEOUT IS UNNECESSARY, IT'S JUST FOR THE EXAMPLE
+    // IF SUCCESS, RETURN TO LOGIN PAGE
+    setTimeout(() => {  // THIS TIMEOUT IS UNNECESSARY, IT'S JUST FOR THE EXAMPLE
       loader.dismiss();
       this.navCtrl.pop();  //  RETURN TO LOGIN PAGE
     }, 1000);

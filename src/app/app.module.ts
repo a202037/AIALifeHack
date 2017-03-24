@@ -4,6 +4,8 @@ import { MyApp } from './app.component';
 
 import { LoginPage }    from '../pages/login/login';
 import { RegisterPage } from '../pages/register/register';
+import { ForgotPassPage } from '../pages/forgot-pass/forgot-pass';
+
 import { HomePage }     from '../pages/home/home';
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -14,7 +16,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     MyApp,
     HomePage,
     LoginPage,
-    RegisterPage
+    RegisterPage,
+    ForgotPassPage
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -24,7 +27,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     MyApp,
     HomePage,
     LoginPage,
-    RegisterPage
+    RegisterPage,
+    ForgotPassPage
   ],
   providers: [
     StatusBar,
