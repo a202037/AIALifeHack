@@ -34,10 +34,10 @@ $ ionic serve
 ```
 
 ## Screenshots
-![Login page](/screenshots/login.jpg?raw=true "Login page")
-![Register page](/screenshots/register.jpg?raw=true "Register page")
-![Forgot Password page](/screenshots/forgot-pass.jpg?raw=true "Forgot Password page")
-![Home page](/screenshots/home.jpg?raw=true "Home page")
+![Login page](/screenshots/login.png?raw=true "Login page")
+![Register page](/screenshots/register.png?raw=true "Register page")
+![Forgot Password page](/screenshots/forgot-pass.png?raw=true "Forgot Password page")
+![Home page](/screenshots/home.png?raw=true "Home page")
 
 
 > This starter use last Ionic 2 version
