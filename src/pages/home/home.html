@@ -1,45 +1,16 @@
 <ion-header>
   <ion-navbar color="primary">
     <ion-title>
-      Ionic login starter
+      Hyper
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
 
-  <h1 text-center>Ionic login starter</h1>
-  <p>
-    Just a simple starter more but with
-    <ion-icon name="heart" color="danger"></ion-icon>
-  </p>
+<!--   <h1 text-center>Ionic login starter</h1> -->
 
-  <ion-list>
-    <ion-item>
-      <ion-label>Login</ion-label>
-      <ion-checkbox checked="true"></ion-checkbox>
-    </ion-item>
-
-    <ion-item>
-      <ion-label>Register</ion-label>
-      <ion-checkbox checked="true"></ion-checkbox>
-    </ion-item>
-
-
-    <ion-item>
-      <ion-label>Forgot Password</ion-label>
-      <ion-checkbox checked="true"></ion-checkbox>
-    </ion-item>
-
-    <ion-item>
-      <ion-label>Tabs</ion-label>
-      <ion-checkbox></ion-checkbox>
-    </ion-item>
-
-    <ion-item>
-      <ion-label>Sidemenu</ion-label>
-      <ion-checkbox></ion-checkbox>
-    </ion-item>
-  </ion-list>
-
+  <button ion-button round  type="button" (click)="takePicture()">Take Photo</button>
+  <button ion-button round  type="button" (click)="accessGallery()">Choose Photo</button>
+  <img [src]="base64Image" *ngIf="base64Image" />
 </ion-content>
