@@ -1,6 +1,7 @@
 import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
+import { ToastController } from 'ionic-angular';
 
 import { LoginPage }    from '../pages/login/login';
 import { RegisterPage } from '../pages/register/register';
@@ -11,6 +12,7 @@ import { HomePage }     from '../pages/home/home';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { Camera } from '@ionic-native/camera';
+import { WheelSelector } from '@ionic-native/wheel-selector';
 
 @NgModule({
   declarations: [
@@ -37,6 +39,8 @@ import { Camera } from '@ionic-native/camera';
     StatusBar,
     SplashScreen,
     Camera,
+    WheelSelector,
+    ToastController,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

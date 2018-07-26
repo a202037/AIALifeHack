@@ -75,5 +75,6 @@
     <plugin name="cordova-plugin-telerik-imagepicker" spec="~2.2.2">
         <variable name="PHOTO_LIBRARY_USAGE_DESCRIPTION" value="your usage message" />
     </plugin>
+    <plugin name="cordova-wheel-selector-plugin" spec="^1.1.1" />
     <engine name="ios" spec="^4.5.4" />
 </widget>
