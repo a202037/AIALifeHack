@@ -5,7 +5,7 @@ import { MyApp } from './app.component';
 import { LoginPage }    from '../pages/login/login';
 import { RegisterPage } from '../pages/register/register';
 import { ForgotPassPage } from '../pages/forgot-pass/forgot-pass';
-
+import { ImgEditPage } from '../pages/img-edit/img-edit';
 import { HomePage }     from '../pages/home/home';
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -18,7 +18,8 @@ import { Camera } from '@ionic-native/camera';
     HomePage,
     LoginPage,
     RegisterPage,
-    ForgotPassPage
+    ForgotPassPage,
+    ImgEditPage
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -29,7 +30,8 @@ import { Camera } from '@ionic-native/camera';
     HomePage,
     LoginPage,
     RegisterPage,
-    ForgotPassPage
+    ForgotPassPage,
+    ImgEditPage
   ],
   providers: [
     StatusBar,

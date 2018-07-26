@@ -13,4 +13,5 @@
   <button ion-button round  type="button" (click)="takePicture()">Take Photo</button>
   <button ion-button round  type="button" (click)="accessGallery()">Choose Photo</button>
   <img [src]="base64Image" *ngIf="base64Image" />
+  <button *ngIf="base64Image" ion-button round large type="button" (click)="goToImgEdit()">OK</button>
 </ion-content>
