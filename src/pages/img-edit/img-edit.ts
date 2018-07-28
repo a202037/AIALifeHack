@@ -44,7 +44,71 @@ import { ToastController } from 'ionic-angular';
 		     {description: '9'}
 		     ]
 		};
-		SBP: string; 
+		DBP_json = {
+		    hundreds: [
+		      {description: '0'},
+		      {description: '1'},
+		      {description: '2'}
+		    ],
+		    tens: [
+		     {description: '0'},
+		     {description: '1'},
+		     {description: '2'},
+		     {description: '3'},
+		     {description: '4'},
+		     {description: '5'},
+		     {description: '6'},
+		     {description: '7'},
+		     {description: '8'},
+		     {description: '9'}
+		    ],
+		    units: [
+		     {description: '0'},
+		     {description: '1'},
+		     {description: '2'},
+		     {description: '3'},
+		     {description: '4'},
+		     {description: '5'},
+		     {description: '6'},
+		     {description: '7'},
+		     {description: '8'},
+		     {description: '9'}
+		     ]
+		};
+		HR_json = {
+		    hundreds: [
+		      {description: '0'},
+		      {description: '1'},
+		      {description: '2'}
+		    ],
+		    tens: [
+		     {description: '0'},
+		     {description: '1'},
+		     {description: '2'},
+		     {description: '3'},
+		     {description: '4'},
+		     {description: '5'},
+		     {description: '6'},
+		     {description: '7'},
+		     {description: '8'},
+		     {description: '9'}
+		    ],
+		    units: [
+		     {description: '0'},
+		     {description: '1'},
+		     {description: '2'},
+		     {description: '3'},
+		     {description: '4'},
+		     {description: '5'},
+		     {description: '6'},
+		     {description: '7'},
+		     {description: '8'},
+		     {description: '9'}
+		     ]
+		};
+		public SBP = '123'; 
+		public DBP = '123'; 
+		public HR = '123'; 
 
 		constructor(
 			public navCtrl: NavController, 
@@ -65,14 +129,85 @@ import { ToastController } from 'ionic-angular';
 	      positiveButtonText: 'Select',
 	      negativeButtonText: 'Cancel',
 	      defaultItems: [ 
-	        { index: 0, value: this.SBP_json.hundreds[0].description },
-	        { index: 1, value: this.SBP_json.tens[1].description},
-	        { index: 2, value: this.SBP_json.units[1].description}
+	        { index: 0, value: this.SBP[0] },
+	        { index: 1, value: this.SBP[1] },
+	        { index: 2, value: this.SBP[2] }
+	      ]
+	    }).then(
+	      (result) => {
+	        let msg = `Selected ${result[0].description}${result[1].description}${result[2].description}`;
+	        this.SBP = result[0].description;
+	        this.SBP += result[1].description;
+	        this.SBP += result[2].description;
+	 
+	        let toast = this.toastCtrl.create({
+	          message: msg,
+	          duration: 4000
+	        }); 
+	        // this.SBP = ${result[0].description}${result[1].description}${result[2].description}
+	        toast.present();
+	      }, 
+	      err => console.log('Error: ', err)
+	      );
+	    
+ 		}
+
+ 		DBP_select() {
+	    this.selector.show({
+	      title: 'Select DBP',
+	      items: [
+	        this.DBP_json.hundreds,
+	        this.DBP_json.tens,
+	        this.DBP_json.units
+
+	      ],
+	      positiveButtonText: 'Select',
+	      negativeButtonText: 'Cancel',
+	      defaultItems: [ 
+	        { index: 0, value: this.DBP[0] },
+	        { index: 1, value: this.DBP[1] },
+	        { index: 2, value: this.DBP[2] }
 	      ]
 	    }).then(
 	      result => {
 	        let msg = `Selected ${result[0].description}${result[1].description}${result[2].description}`;
-	        this.SBP = result[0];
+	        this.DBP = result[0].description;
+	        this.DBP += result[1].description;
+	        this.DBP += result[2].description;
+	        let toast = this.toastCtrl.create({
+	          message: msg,
+	          duration: 4000
+	        }); 
+	        // this.SBP = ${result[0].description}${result[1].description}${result[2].description}
+	        toast.present();
+	      }, 
+	      err => console.log('Error: ', err)
+	      );
+	    
+ 		}
+
+ 		HR_select() {
+	    this.selector.show({
+	      title: 'Select HR',
+	      items: [
+	        this.HR_json.hundreds,
+	        this.HR_json.tens,
+	        this.HR_json.units
+
+	      ],
+	      positiveButtonText: 'Select',
+	      negativeButtonText: 'Cancel',
+	      defaultItems: [ 
+	        { index: 0, value: this.HR[0] },
+	        { index: 1, value: this.HR[1] },
+	        { index: 2, value: this.HR[2] }
+	      ]
+	    }).then(
+	      result => {
+	        let msg = `Selected ${result[0].description}${result[1].description}${result[2].description}`;
+	        this.HR = result[0].description;
+	        this.HR += result[1].description;
+	        this.HR += result[2].description;
 	        let toast = this.toastCtrl.create({
 	          message: msg,
 	          duration: 4000

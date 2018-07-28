@@ -14,13 +14,14 @@
   <button ion-button round  type="button" (click)="accessGallery()">Choose Photo</button>
   <ion-item class="myCustomSelect">
   <ion-label>BP Machine Model</ion-label>
-  <ion-select  [(ngModel)]="machine_model">
+  <ion-select  [(ngModel)]="machine_model" required>
     <ion-option text-wrap value="OmronHEM-7113">Omron HEM-7113</ion-option>
     <ion-option text-wrap  value="IhealthWristWirelessTensiometer">Ihealth Wrist Wireless Tensiometer</ion-option>
   </ion-select>
 </ion-item>
   <img [src]="base64Image" *ngIf="base64Image" />
  <ion-col style="text-align: center">
-  	<button  *ngIf="base64Image" ion-button round large type="button" (click)="goToImgEdit()">OK</button>
+  	<button  type="submit" ion-button round large type="button" (click)="goToImgEdit()">OK</button>
  </ion-col>
 </ion-content>
+*ngIf="base64Image"

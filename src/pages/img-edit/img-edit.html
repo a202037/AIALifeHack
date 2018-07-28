@@ -9,17 +9,33 @@
 
 
 <ion-content padding>
-
+  
 	<ion-card>
   <ion-card-header>
-    SBP: 
+    SBP: {{SBP}} mmHg
+  </ion-card-header>
+  <!-- <ion-card-content>
+    The British use the term "header", but the American term "head-shot" the English simply refuse to adopt.
+  </ion-card-content> -->
+</ion-card>
+<ion-card>
+  <ion-card-header>
+    DBP: {{DBP}} mmHg
+  </ion-card-header>
+  <!-- <ion-card-content>
+    The British use the term "header", but the American term "head-shot" the English simply refuse to adopt.
+  </ion-card-content> -->
+</ion-card>
+<ion-card>
+  <ion-card-header>
+    HR: {{HR}} bpm
   </ion-card-header>
   <!-- <ion-card-content>
     The British use the term "header", but the American term "head-shot" the English simply refuse to adopt.
   </ion-card-content> -->
 </ion-card>
 <button ion-button round  type="button" (click)="SBP_select()">SBP</button>
-<button ion-button round  type="button" (click)="SBP_select()">DBP</button>
-<button ion-button round  type="button" (click)="SBP_select()">HR</button>
+<button ion-button round  type="button" (click)="DBP_select()">DBP</button>
+<button ion-button round  type="button" (click)="HR_select()">HR</button>
 <button ion-button round  type="button" (click)="SBP_select()">Submit</button>
 </ion-content>
