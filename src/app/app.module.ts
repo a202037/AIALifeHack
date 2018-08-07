@@ -24,7 +24,9 @@ import { WheelSelector } from '@ionic-native/wheel-selector';
     ImgEditPage
   ],
   imports: [
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp, {
+        server: "http://137.189.62.130:8885/receiver",
+    })
   ],
   bootstrap: [IonicApp],
   entryComponents: [
