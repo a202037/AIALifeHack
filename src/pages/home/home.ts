@@ -11,7 +11,7 @@ import * as $ from 'jquery';
   templateUrl: 'home.html'
 })
 export class HomePage {
-  public base64Image = "";
+  public base64Image = "fdfdggfddf";
   private form : FormGroup;
   private question_label = null;
   public date = moment.utc().format('YYYY-MM-DD HH:mm:ss');
@@ -28,16 +28,16 @@ export class HomePage {
     ) {
 
     this.question_label = [
-      ['BP_machine'],
-      ['Phototaken'],
+      ['BP_machine_model'],
+      ['Phototaken_now'],
       ['Photodate'],
       ['time'],
       ['image'],
     ]
 
     this.form = this.formBuilder.group({
-      BP_machine: ['', Validators.required],
-      Phototaken: ['', Validators.required],
+      BP_machine_model: ['', Validators.required],
+      Phototaken_now: ['', Validators.required],
       Photodate: [''],
       Phototime: [''],
       image: [''],
@@ -87,14 +87,15 @@ export class HomePage {
       // Change Reuslt for special case
       // this.form.controls["1c_13R"].setValue(this.form.value["1a_13R"])
       this.form.controls["image"].setValue(this.base64Image)
-      console.log("Final Data", JSON.stringify(this.form.value))
+      console.log("FinalData", JSON.stringify(this.form.value))
       $.post(this.config.get('server'), {
-          which: 'profile',
-          type: 'data',
+          // which: 'profile',
+          type: 'json',
           payload: JSON.stringify(this.form.value)
         }, function(Response){
           console.log(Response)
         })
+
       this.goToImgEdit();
         // $.post(this.config.get('server'), {
         //   which: 'proforma',

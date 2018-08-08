@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { WheelSelector } from '@ionic-native/wheel-selector';
 import { ToastController } from 'ionic-angular';
+
 /*
   Generated class for the ImgEditPage page.
 
@@ -109,12 +110,27 @@ import { ToastController } from 'ionic-angular';
 		public SBP = '123'; 
 		public DBP = '123'; 
 		public HR = '123'; 
+		posts: any;
 
 		constructor(
 			public navCtrl: NavController, 
 			public navParams: NavParams, 
 			private selector: WheelSelector,
 			private toastCtrl: ToastController) {
+			// this.http.get('http://137.189.62.130:8885/receiver', {}, {}).then(data => {
+		 //    console.log(data.status);
+		 //    console.log(data.data); // data received by server
+		 //    console.log(data.headers);
+
+		 //  })
+		 //  .catch(error => {
+
+		 //    console.log(error.status);
+		 //    console.log(error.error); // error message as string
+		 //    console.log(error.headers);
+
+		 //  });
+
 		}
 		
 		SBP_select() {
