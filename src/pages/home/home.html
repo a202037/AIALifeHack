@@ -21,22 +21,15 @@
       </ion-select>
     </ion-item> 
 
-    <ion-item>
-      <ion-label>Photo taken now</ion-label>
-      <ion-select  required formControlName="Phototaken_now" placeholder="Yes or no?">
-        <ion-option text-wrap value="yes">Yes</ion-option>
-        <ion-option text-wrap  value="no">No</ion-option>
-      </ion-select>
-    </ion-item>
 
-    <ion-item  *ngIf="form.value['Phototaken_now'] == 'no'"> 
+    <ion-item  > 
       <ion-label>Date of photo taken </ion-label>
-      <ion-datetime [(ngModel)]="local_date" *ngIf="form.value['Phototaken_now'] == 'no'" placeholder="Please select date" formControlName="Photodate" type="text"  displayFormat="DD MMM YYYY " pickerFormat="YYYY MM DD" [max]="getCurrentTime()" ></ion-datetime>   
+      <ion-datetime [(ngModel)]="local_date"  placeholder="Please select date" formControlName="Photodate" type="text"  displayFormat="DD MMM YYYY " pickerFormat="YYYY MM DD" [max]="getCurrentTime()" ></ion-datetime>   
        
     </ion-item>
-    <ion-item  *ngIf="form.value['Phototaken_now'] == 'no'"> 
+    <ion-item > 
       <ion-label>Time of photo taken </ion-label>
-      <ion-datetime [(ngModel)]="local_time" *ngIf="form.value['Phototaken_now'] == 'no'" placeholder="Please select time" formControlName="Phototime" type="text"  displayFormat="hh:mm A" pickerFormat="hh:mm A" ></ion-datetime>     
+      <ion-datetime [(ngModel)]="local_time"  placeholder="Please select time" formControlName="Phototime" type="text"  displayFormat="hh:mm A" pickerFormat="hh:mm A" ></ion-datetime>     
     </ion-item>
   </form>
 

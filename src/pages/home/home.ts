@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
-import { Config, NavParams, NavController} from 'ionic-angular';
+import { Config, NavParams, NavController, AlertController} from 'ionic-angular';
 import {Camera} from 'ionic-native';
 import { ImgEditPage } from '../img-edit/img-edit';
 import moment from 'moment';
@@ -11,7 +11,7 @@ import * as $ from 'jquery';
   templateUrl: 'home.html'
 })
 export class HomePage {
-  public base64Image = "fdfdggfddf";
+  public base64Image = "";
   private form : FormGroup;
   private question_label = null;
   public date = moment.utc().format('YYYY-MM-DD HH:mm:ss');
@@ -19,32 +19,35 @@ export class HomePage {
   public local_date = moment(this.stillUtc).local().format('YYYY-MM-DD');
   public local_time = moment(this.stillUtc).local().format('HH:mm:ss');
   public minDate : string; 
-  public BP_record : any 
+  public BP_record : any;
+  public hash : string; 
   constructor(
     public navCtrl: NavController,
     private formBuilder: FormBuilder,
     public navParams: NavParams, 
-    private config: Config
+    private config: Config,
+    private alertCtrl: AlertController
     
     ) {
 
     this.question_label = [
       ['BP_machine_model'],
-      ['Phototaken_now'],
       ['Photodate'],
       ['time'],
       ['image'],
+      ['hash'],
     ]
 
     this.form = this.formBuilder.group({
       BP_machine_model: ['', Validators.required],
-      Phototaken_now: ['', Validators.required],
-      Photodate: [''],
-      Phototime: [''],
+      Photodate: ['', Validators.required],
+      Phototime: ['', Validators.required],
       image: [''],
+      hash: [''],
       });
 
-
+    this.hash = (Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15)).toString();
+  //generate unique string with length 11 and combination of digits and characters
   }
 
   takePicture(){
@@ -79,28 +82,50 @@ export class HomePage {
 }
 
   goToImgEdit(){
-    this.navCtrl.push(ImgEditPage, {
-    data: this.BP_record
+    this.navCtrl.push(ImgEditPage, { 
+    BP_record: this.BP_record, 
+    hash: this.hash,
     });
   }
 
   public submit(){
-    console.log(this.form.valid, this.base64Image)
+    var self = this;
+    console.log(this.form.valid, this.base64Image, this.hash)
     if (this.form.valid) {
       // Change Reuslt for special case
-      // this.form.controls["1c_13R"].setValue(this.form.value["1a_13R"])
       this.form.controls["image"].setValue(this.base64Image)
+      this.form.controls["hash"].setValue(this.hash)
       console.log("FinalData", JSON.stringify(this.form.value))
-      $.post(this.config.get('server'), {
-          // which: 'profile',
-          type: 'json',
-          payload: JSON.stringify(this.form.value)
-        }, function(Response){
-          this.BP_record = Response
-          console.log(this.BP_record)
-        })
-
-      this.goToImgEdit();
+      // $.post(this.config.get('server'), {
+      //     // which: 'profile',
+      //     type: 'json',
+      //     payload: JSON.stringify(this.form.value)
+      //   }, function(Response){
+      //     this.BP_record = Response
+      //     console.log(this.BP_record) 
+      //     },callback()
+      //     )
+       $.ajax({
+         method: "POST", 
+         url: "http://137.189.62.130:8885/receiver", 
+         data: {"data":JSON.stringify(this.form.value)},
+         success: function(data){
+           console.log(data.DBP_record)
+           if(data.DBP_record == -1 && data.SBP_record == -1 && data.HR_record == -1){
+             let alert = self.alertCtrl.create({
+                  title: "Error",
+                  subTitle: "Image cannot be recognized. Please take a new one.",
+                  buttons: ["OK"]
+              });
+              alert.present();
+           } else {
+             self.BP_record = data
+             self.goToImgEdit()
+           }           
+         }
+       })
+      
     }
   }
+
 }
