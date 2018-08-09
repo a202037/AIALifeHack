@@ -110,27 +110,15 @@ import { ToastController } from 'ionic-angular';
 		public SBP = '123'; 
 		public DBP = '123'; 
 		public HR = '123'; 
-		posts: any;
+		public BP_record : any 
 
 		constructor(
 			public navCtrl: NavController, 
 			public navParams: NavParams, 
 			private selector: WheelSelector,
 			private toastCtrl: ToastController) {
-			// this.http.get('http://137.189.62.130:8885/receiver', {}, {}).then(data => {
-		 //    console.log(data.status);
-		 //    console.log(data.data); // data received by server
-		 //    console.log(data.headers);
-
-		 //  })
-		 //  .catch(error => {
-
-		 //    console.log(error.status);
-		 //    console.log(error.error); // error message as string
-		 //    console.log(error.headers);
-
-		 //  });
-
+			this.BP_record = navParams.get('data')
+			console.log(this.BP_record) 
 		}
 		
 		SBP_select() {

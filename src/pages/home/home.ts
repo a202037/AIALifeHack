@@ -19,6 +19,7 @@ export class HomePage {
   public local_date = moment(this.stillUtc).local().format('YYYY-MM-DD');
   public local_time = moment(this.stillUtc).local().format('HH:mm:ss');
   public minDate : string; 
+  public BP_record : any 
   constructor(
     public navCtrl: NavController,
     private formBuilder: FormBuilder,
@@ -78,7 +79,9 @@ export class HomePage {
 }
 
   goToImgEdit(){
-    this.navCtrl.push(ImgEditPage);
+    this.navCtrl.push(ImgEditPage, {
+    data: this.BP_record
+    });
   }
 
   public submit(){
@@ -93,32 +96,11 @@ export class HomePage {
           type: 'json',
           payload: JSON.stringify(this.form.value)
         }, function(Response){
-          console.log(Response)
+          this.BP_record = Response
+          console.log(this.BP_record)
         })
 
       this.goToImgEdit();
-        // $.post(this.config.get('server'), {
-        //   which: 'proforma',
-        //   type: 'time',
-        //   payload: JSON.stringify(this.timer_stack)
-        // }, function(Response){
-        //   console.log("Timer", Response)
-        // })
-
-    //   this.navCtrl.setRoot(Home.Completion)
-    // } else {
-    //   for(let question in this.form.controls){
-    //     if(!this.form.controls[question].valid){
-    //       console.log(question, this.form.controls[question].valid)
-    //       if(document.getElementById(question.split("_")[0]) != null){
-    //         let yOffset = document.getElementById(question.split("_")[0]).offsetTop
-    //         // console.log("yOffset", yOffset);
-    //           this.content.scrollTo(0, yOffset, 10)
-
-    //           break  
-    //       }
-    //     }
-    //   }
     }
   }
 }
