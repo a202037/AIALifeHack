@@ -21,7 +21,7 @@ export class HomePage {
   public minDate : string; 
   public BP_record : any;
   public hash : string; 
-  constructor(
+  constructor( 
     public navCtrl: NavController,
     private formBuilder: FormBuilder,
     public navParams: NavParams, 
@@ -81,10 +81,15 @@ export class HomePage {
     return this.minDate = moment.utc().startOf('day').format('YYYY-MM-DD');
 }
 
+  reload(){
+   this.navCtrl.setRoot(this.navCtrl.getActive().component);
+  }
+
   goToImgEdit(){
     this.navCtrl.push(ImgEditPage, { 
     BP_record: this.BP_record, 
     hash: this.hash,
+    base64Image: this.base64Image,
     });
   }
 
@@ -117,7 +122,10 @@ export class HomePage {
                   subTitle: "Image cannot be recognized. Please take a new one.",
                   buttons: ["OK"]
               });
+             self.reload();
+             this.hash = (Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15)).toString();
               alert.present();
+
            } else {
              self.BP_record = data
              self.goToImgEdit()

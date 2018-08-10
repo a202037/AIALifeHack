@@ -35,7 +35,6 @@
 
   <img [src]="base64Image" *ngIf="base64Image" />
   <ion-col style="text-align: center">
-  	<button   ion-button round large type="button" (click)="submit()">OK</button>
+  	<button  *ngIf="base64Image" ion-button round large type="button" (click)="submit()">OK</button>
   </ion-col>
 </ion-content>
-*ngIf="base64Image"

@@ -113,7 +113,7 @@ import { HomePage } from '../home/home';
   	public HR = '123'; 
   	public BP_record : any; 
   	public hash : string;
-
+  	public base64Image : string;
   	constructor(
   		public navCtrl: NavController, 
   		public navParams: NavParams, 
@@ -121,9 +121,10 @@ import { HomePage } from '../home/home';
   		private toastCtrl: ToastController) {
   		this.BP_record = navParams.get('BP_record')
   		this.hash = navParams.get('hash')
-  		this.SBP = this.BP_record['SBP_record']
-  		this.DBP = this.BP_record['DBP_record'] 
-  		this.HR = this.BP_record['HR_record']
+  		this.base64Image = navParams.get('base64Image')
+  		this.SBP = this.BP_record['SBP_record'].toString()
+  		this.DBP = this.BP_record['DBP_record'].toString() 
+  		this.HR = this.BP_record['HR_record'].toString()
   		if(this.SBP == "-1"){
 				this.SBP = (Math.floor(Math.random() * 50) + 110).toString()   //110-160
 			} 
@@ -133,7 +134,17 @@ import { HomePage } from '../home/home';
 			if(this.HR == "-1"){
 				this.HR = (Math.floor(Math.random() * 90) + 60).toString()   //60-150
 			} 
-			console.log(this.SBP,this.DBP, this.HR, this.hash) 
+
+		if(this.SBP.length == 2){
+			this.SBP = "0" + this.SBP;
+		}
+		if(this.DBP.length == 2){
+			this.DBP = "0" + this.DBP;
+		}
+		if(this.HR.length == 2){
+			this.HR = "0" + this.HR;
+		}
+		console.log(this.SBP,this.DBP, this.HR, this.hash, this.BP_record) 
 		}
 		
 		SBP_select() {
