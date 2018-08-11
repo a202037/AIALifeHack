@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
-import { Config, NavParams, NavController, AlertController} from 'ionic-angular';
+import { Config, NavParams, NavController, AlertController, LoadingController} from 'ionic-angular';
 import {Camera} from 'ionic-native';
 import { ImgEditPage } from '../img-edit/img-edit';
 import moment from 'moment';
@@ -26,16 +26,17 @@ export class HomePage {
     private formBuilder: FormBuilder,
     public navParams: NavParams, 
     private config: Config,
-    private alertCtrl: AlertController
+    private alertCtrl: AlertController,
+    public loadingCtrl: LoadingController
     
     ) {
 
     this.question_label = [
-      ['BP_machine_model'],
-      ['Photodate'],
-      ['time'],
-      ['image'],
-      ['hash'],
+    ['BP_machine_model'],
+    ['Photodate'],
+    ['time'],
+    ['image'], 
+    ['hash'],
     ]
 
     this.form = this.formBuilder.group({
@@ -44,59 +45,61 @@ export class HomePage {
       Phototime: ['', Validators.required],
       image: [''],
       hash: [''],
-      });
+    });
 
     this.hash = (Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15)).toString();
   //generate unique string with length 11 and combination of digits and characters
-  }
-
-  takePicture(){
-    Camera.getPicture({
-      destinationType: Camera.DestinationType.DATA_URL,
-      quality: 100,
-      saveToPhotoAlbum: false,
-      correctOrientation: true
-    }).then((imageData) => {
-      this.base64Image = "data:image/jpeg;base64," + imageData;
-    }, (err) => {
-      console.log(err);
-    });
-    
-
-  }
-
-  accessGallery(){
-    Camera.getPicture({
-      sourceType: Camera.PictureSourceType.PHOTOLIBRARY,
-      destinationType: Camera.DestinationType.DATA_URL
-    }).then((imageData) => {
-      this.base64Image = 'data:image/jpeg;base64,'+imageData;
-    }, (err) => {
-      console.log(err);
-    });
-    
-  } 
-
-  getCurrentTime() {
-    return this.minDate = moment.utc().startOf('day').format('YYYY-MM-DD');
 }
 
-  reload(){
-   this.navCtrl.setRoot(this.navCtrl.getActive().component);
-  }
+takePicture(){
+  Camera.getPicture({
+    destinationType: Camera.DestinationType.DATA_URL,
+    quality: 100,
+    saveToPhotoAlbum: false,
+    correctOrientation: true
+  }).then((imageData) => {
+    this.base64Image = "data:image/jpeg;base64," + imageData;
+  }, (err) => {
+    console.log(err);
+  });
+  
 
-  goToImgEdit(){
-    this.navCtrl.push(ImgEditPage, { 
+}
+
+accessGallery(){
+  Camera.getPicture({
+    sourceType: Camera.PictureSourceType.PHOTOLIBRARY,
+    destinationType: Camera.DestinationType.DATA_URL
+  }).then((imageData) => {
+    this.base64Image = 'data:image/jpeg;base64,'+imageData;
+  }, (err) => {
+    console.log(err);
+  });
+  
+} 
+
+getCurrentTime() {
+  return this.minDate = moment.utc().startOf('day').format('YYYY-MM-DD');
+}
+
+reload(){
+  this.navCtrl.setRoot(this.navCtrl.getActive().component);
+}
+
+goToImgEdit(){
+  this.navCtrl.push(ImgEditPage, { 
     BP_record: this.BP_record, 
     hash: this.hash,
     base64Image: this.base64Image,
-    });
-  }
+  });
+}
 
-  public submit(){
-    var self = this;
-    console.log(this.form.valid, this.base64Image, this.hash)
-    if (this.form.valid) {
+public submit(){
+  var self = this;
+  console.log(this.form.valid, this.base64Image, this.hash)
+  let loader = this.loadingCtrl.create();
+  loader.present();
+  if (this.form.valid) {
       // Change Reuslt for special case
       this.form.controls["image"].setValue(this.base64Image)
       this.form.controls["hash"].setValue(this.hash)
@@ -110,21 +113,25 @@ export class HomePage {
       //     console.log(this.BP_record) 
       //     },callback()
       //     )
-       $.ajax({
-         method: "POST", 
-         url: "http://137.189.62.130:8885/receiver", 
-         data: {"data":JSON.stringify(this.form.value)},
-         success: function(data){
-           console.log(data.DBP_record)
+      $.ajax({
+        method: "POST", 
+        url: "http://137.189.62.130:8885/receiver", 
+        data: {"data":JSON.stringify(this.form.value)},
+        success: function(data){
+          loader.dismiss();  
+          
+           //console.log(data.DBP_record)
+
+
            if(data.DBP_record == -1 && data.SBP_record == -1 && data.HR_record == -1){
              let alert = self.alertCtrl.create({
-                  title: "Error",
-                  subTitle: "Image cannot be recognized. Please take a new one.",
-                  buttons: ["OK"]
-              });
+               title: "Error",
+               subTitle: "Image cannot be recognized. Please take a new one.",
+               buttons: ["OK"]
+             });
              self.reload();
              this.hash = (Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15)).toString();
-              alert.present();
+             alert.present();
 
            } else {
              self.BP_record = data

@@ -77,6 +77,6 @@
     </plugin>
     <plugin name="cordova-wheel-selector-plugin" spec="^1.1.1" />
     <plugin name="cordova-plugin-advanced-http" spec="^1.11.1" />
-    <engine name="ios" spec="^4.5.4" />
-    <engine name="android" spec="~7.0.0" />
+    <engine name="ios" spec="^4.5.5" />
+    <engine name="android" spec="^7.1.1" />
 </widget>
