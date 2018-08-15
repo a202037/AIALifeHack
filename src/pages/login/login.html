@@ -1,11 +1,12 @@
-<ion-header>
+<!-- <ion-header>
   <ion-navbar color="primary">
     <ion-title>Hyper</ion-title>
   </ion-navbar>
-</ion-header>
+</ion-header> -->
 <!--   <ion-img width="300" height="240" src="assets/imgs/hyper.png"></ion-img> -->
 
-<ion-content padding color="base">
+<ion-content padding class="main-wrapper bg-login">
+  <ion-img width="300" height="240" src="assets/img/logo-hm.png"></ion-img>
 
   <form (ngSubmit)="login()">
 
@@ -19,11 +20,12 @@
       <ion-input type="password" [(ngModel)]="formData.pass" name="pass" clearInput="true"></ion-input>
     </ion-item>
     <p text-right>
-      <button ion-button clear type="button" (click)="goToForgotPass()">Forgot password</button>
+      <button ion-button clear type="button" style="color: white;" (click)="goToForgotPass()">Forgot password</button>
     </p>
-
-    <button ion-button block type="submit">Login</button>
-    <button ion-button block type="button" outline (click)="goToRegister()">Register</button>
+    <img src="../assets/img/login-btn.png" style="width : 100% ; height : 100%" (click)="login()" type="submit">
+    <img src="../assets/img/register-btn.png" style="width : 100% ; height : 100%" (click)="goToRegister()" >
+    <!-- <button ion-button block type="submit" > <img src="../assets/img/login-btn.png"></button> -->
+    <!-- <button ion-button block type="button" outline (click)="goToRegister()">Register</button> -->
   </form>
 
 </ion-content>
