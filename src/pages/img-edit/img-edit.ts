@@ -176,7 +176,7 @@ import { HomePage } from '../home/home';
 					duration: 4000
 				}); 
 	        // this.SBP = ${result[0].description}${result[1].description}${result[2].description}
-	        toast.present();
+	        //toast.present();
 	    }, 
 	    err => console.log('Error: ', err)
 	    );
@@ -211,7 +211,7 @@ import { HomePage } from '../home/home';
 					duration: 4000
 				}); 
 	        // this.SBP = ${result[0].description}${result[1].description}${result[2].description}
-	        toast.present();
+	        //toast.present();
 	    }, 
 	    err => console.log('Error: ', err)
 	    );
@@ -246,7 +246,7 @@ import { HomePage } from '../home/home';
 					duration: 4000
 				}); 
 	        // this.SBP = ${result[0].description}${result[1].description}${result[2].description}
-	        toast.present();
+	        //toast.present();
 	    }, 
 	    err => console.log('Error: ', err)
 	    );
@@ -258,6 +258,10 @@ import { HomePage } from '../home/home';
 
 		public submit(){
 		var self = this;
+		var regex = /0/gi;
+		this.SBP = this.SBP.replace(regex, '')
+		this.DBP = this.DBP.replace(regex, '')
+		this.HR = this.HR.replace(regex, '')
 		console.log(this.SBP, this.DBP, this.HR, this.hash)
       // $.post(this.config.get('server'), {
       //     // which: 'profile',

@@ -97,9 +97,10 @@ goToImgEdit(){
 public submit(){
   var self = this;
   console.log(this.form.valid, this.base64Image, this.hash)
-  let loader = this.loadingCtrl.create();
-  loader.present();
+  
   if (this.form.valid) {
+      let loader = this.loadingCtrl.create();
+      loader.present();
       // Change Reuslt for special case
       this.form.controls["image"].setValue(this.base64Image)
       this.form.controls["hash"].setValue(this.hash)
