@@ -1,22 +1,22 @@
-<ion-header>
+<!-- <ion-header>
   <ion-navbar color="primary">
     <ion-title>Forgot password</ion-title>
   </ion-navbar>
 </ion-header>
-
-<ion-content padding color="base">
+ -->
+<ion-content padding class="main-wrapper bg-login">
 
   <form (ngSubmit)="resetPass()">
-    <p>
+    <p style="color: white; font-size: 2vh;">
       Please enter your Email so we can send you an email to reset your password.
     </p>
 
-    <ion-item margin-bottom>
-      <ion-label floating>Email</ion-label>
-      <ion-input type="email" [(ngModel)]="formData.email" name="email" clearInput="true"></ion-input>
+    <ion-item no-lines margin-bottom class="ion-item">
+      <ion-label style="color: white; font-size: 3vh;" floating>Email</ion-label>
+      <ion-input style="color: white; font-size: 3vh;" type="email" [(ngModel)]="formData.email" name="email" clearInput="true"></ion-input>
     </ion-item>
-
-    <button ion-button block type="submit">submit</button>
+ <input type="image" value="submit"src="../assets/img/submit-btn.png" style="width : 30vh ; height :6vh" alt="submit Button" >
+   <!--  <button ion-button block type="submit">submit</button> -->
   </form>
 
 </ion-content>
