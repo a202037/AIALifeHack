@@ -58,12 +58,50 @@ ion-img{
 
 .ion-item{
 	background-color: transparent;
-	background-image: url('../assets/img/entry.png');
+	background-image: url('../assets/img/entry.png')!important;
 	background-size: 95% 90%;
 	background-repeat: no-repeat;
 	color: white;
+	left: 2.5%;
 }
+
+.ion-select{
+	background-color: transparent;
+	background-image: url('../assets/img/select-btn.png')!important;
+	background-size: 95% 90%;
+	background-repeat: no-repeat;
+	left: 2.5%;
+
+}
+
+.select-icon {
+		visibility: hidden;
+}   // remvoe the caret in ion-select//
+
 
 .label {
    margin: 0;
 }
+
+
+
+// ionic-selct wrapper//
+.myCustomSelect{
+  max-width: 90% !important;
+  min-width: 90% !important;
+
+}
+
+.alert-wrapper {
+   min-width: 70px;//what ever you like
+}
+
+.alert-radio-label {
+   white-space: normal!important;
+}
+
+
+.alert-ios .alert-radio-label{ white-space: pre-line;}
+.alert-md .alert-radio-label{ white-space: pre-line;}
+.alert-wp .alert-radio-label{ white-space: pre-line;}
+.select-text { white-space: pre-line;}

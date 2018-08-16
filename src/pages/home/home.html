@@ -10,29 +10,34 @@
 
   <!--   <h1 text-center>Ionic login starter</h1> -->
 
-  <button ion-button round  type="button" (click)="takePicture()">Take Photo</button>
-  <button ion-button round  type="button" (click)="accessGallery()">Choose Photo</button>
+<img  src="assets/img/logo-hm.png" align="left"  style="width : 15vh ; height :15vh;">
+  <img src="../assets/img/logout-btn.png" align="right" style="width : 8vh ; height :8vh; margin: 3vh;" (click)="logout()" >
   <form [formGroup]="form">
-    <ion-item>
-      <ion-label>BP Machine Model</ion-label>
-      <ion-select required formControlName="BP_machine_model" placeholder="Please select model">
+    <img  src="assets/img/bpmodel.png" align="middle"  style="width : 80%">
+
+    <ion-item no-lines class="ion-select ">
+     <!-- <ion-label style="color: white; font-size: 3vh;">BP Machine Model</ion-label> -->
+      <ion-select class="myCustomSelect" style="color: #000049; font-size: 3vh;" required formControlName="BP_machine_model">
         <ion-option text-wrap value="OmronHEM-7113">Omron HEM-7113</ion-option>
         <ion-option text-wrap  value="IhealthWristWirelessTensiometer">Ihealth Wrist Wireless Tensiometer</ion-option>
       </ion-select>
     </ion-item> 
 
 
-    <ion-item  > 
-      <ion-label>Date of photo taken </ion-label>
-      <ion-datetime [(ngModel)]="local_date"  placeholder="Please select date" formControlName="Photodate" type="text"  displayFormat="DD MMM YYYY " pickerFormat="YYYY MM DD" [max]="getCurrentTime()" ></ion-datetime>   
+    <ion-item no-lines class="ion-item" > 
+      <ion-label style="color: white; font-size: 3vh;">Date of photo taken </ion-label>
+      <ion-datetime style="color: #000049; font-size: 3vh;" [(ngModel)]="local_date"  formControlName="Photodate" type="text"  displayFormat="DD MMM YYYY " pickerFormat="YYYY MM DD" [max]="getCurrentTime()" ></ion-datetime>   
       
     </ion-item>
-    <ion-item > 
-      <ion-label>Time of photo taken </ion-label>
-      <ion-datetime [(ngModel)]="local_time"  placeholder="Please select time" formControlName="Phototime" type="text"  displayFormat="hh:mm A" pickerFormat="hh:mm A" ></ion-datetime>     
+    <ion-item  no-lines class="ion-item"> 
+      <ion-label style="color: white; font-size: 3vh;">Time of photo taken </ion-label>
+      <ion-datetime style="color: #000049; font-size: 3vh;" [(ngModel)]="local_time"  placeholder="Please select time" formControlName="Phototime" type="text"  displayFormat="hh:mm A" pickerFormat="hh:mm A" ></ion-datetime>     
     </ion-item>
   </form>
-
+  <img src="../assets/img/camera-btn.png" style="width : 25vh ; height :22vh; padding: 3vh;" (click)="takePicture()" >
+   <img src="../assets/img/choosephoto-btn.png" style="width : 28vh ; height :22vh; padding: 3vh;" (click)="accessGallery()" >
+  <!-- <button ion-button round  type="button" (click)="">Take Photo</button>
+  <button ion-button round  type="button" (click)="accessGallery()">Choose Photo</button> -->
   <img [src]="base64Image" *ngIf="base64Image" />
   <ion-col style="text-align: center">
   	<button  *ngIf="base64Image" ion-button round large type="button" (click)="submit()">OK</button>

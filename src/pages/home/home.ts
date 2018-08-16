@@ -3,6 +3,7 @@ import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { Config, NavParams, NavController, AlertController, LoadingController} from 'ionic-angular';
 import {Camera} from 'ionic-native';
 import { ImgEditPage } from '../img-edit/img-edit';
+import { LoginPage } from '../login/login';
 import moment from 'moment';
 import * as $ from 'jquery';
 
@@ -92,6 +93,11 @@ goToImgEdit(){
     hash: this.hash,
     base64Image: this.base64Image,
   });
+}
+
+logout(){
+  this.navCtrl.push(LoginPage);
+
 }
 
 public submit(){
