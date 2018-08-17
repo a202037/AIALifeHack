@@ -4,6 +4,7 @@ import { Config, NavParams, NavController, AlertController, LoadingController} f
 import {Camera} from 'ionic-native';
 import { ImgEditPage } from '../img-edit/img-edit';
 import { LoginPage } from '../login/login';
+import { ReportPagePage } from '../report/report';
 import moment from 'moment';
 import * as $ from 'jquery';
 import { ImgDetailsPagePage } from '../img-details/img-details';
@@ -16,11 +17,6 @@ export class HomePage {
   public base64Image = "";
   private form : FormGroup;
   private question_label = null;
-  public date = moment.utc().format('YYYY-MM-DD HH:mm:ss');
-  public stillUtc = moment.utc(this.date).toDate();
-  public local_date = moment(this.stillUtc).local().format('YYYY-MM-DD');
-  public local_time = moment(this.stillUtc).local().format('HH:mm:ss');
-  public minDate : string; 
   public BP_record : any;
   public hash : string; 
   constructor( 
@@ -99,10 +95,6 @@ accessGallery(){
   }
 } 
 
-getCurrentTime() {
-  return this.minDate = moment.utc().startOf('day').format('YYYY-MM-DD');
-}
-
 reload(){
   this.navCtrl.setRoot(this.navCtrl.getActive().component);
 }
@@ -133,6 +125,10 @@ goToImgDetails(){
 
     }
 
-   
+    goToReport(){
+      this.navCtrl.setRoot(ReportPagePage);
 
-}
+    }
+
+
+  }

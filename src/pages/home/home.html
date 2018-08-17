@@ -6,13 +6,13 @@
   </ion-navbar>
 </ion-header> -->
 
-<ion-content padding class="main-wrapper bg-hm">
+<ion-content padding class="main-wrapper bg-hm scroll-content">
 
   <!--   <h1 text-center>Ionic login starter</h1> -->
-<img  src="assets/img/logo-hm.png" align="left"  style="width : 25vh; height :10vh;">
-  <img src="../assets/img/logout-btn.png" align="right" style="width : 8vh ; height :8vh;" (click)="logout()" >
+<img  src="assets/img/logo-hm.png" align="left"  style="width :40%; height :10%;">
+  <img src="../assets/img/logout-btn.png" align="right" style="width : 20% ; height :9.8%;" (click)="logout()" >
   <form [formGroup]="form">
-    <img  src="../assets/img/BPmodel.png" align="middle"  style="width : 80%; margin: 10%;">
+    <img  src="../assets/img/BPmodel.png" align="middle"  style="width : 80%; height:20% ;margin: 10%;">
 
     <ion-item no-lines class="ion-select ">
      <!-- <ion-label style="color: white; font-size: 3vh;">BP Machine Model</ion-label> -->
@@ -35,8 +35,8 @@
   </form>
   <img src="../assets/img/camera-btn.png"  align="left" style="width : 50% ; height :25%; display: inline-block;" (click)="takePicture()" >
    <img src="../assets/img/choosephoto-btn.png"  align="right" style="width : 50% ; height :25%; display: inline-block;" (click)="accessGallery()" >
-   <img src="../assets/img/report-btn.png" style="width : 50% ; height :25%;" >
- 
+   <img src="../assets/img/report-btn.png" style="width : 50% ; height :25%;" (click)=" goToReport()">
+
   <!-- <img [src]="base64Image" *ngIf="base64Image" />
   <ion-col style="text-align: center">
   	<button  *ngIf="base64Image" ion-button round large type="button" (click)="submit()">OK</button>

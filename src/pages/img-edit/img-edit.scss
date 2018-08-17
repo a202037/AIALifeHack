@@ -1,3 +1,46 @@
-page-img-edit {
+.sbp {
 
+	color: #000049; 
+	font-size: 4vh; 
+	 left: 15%;
+	 background-image: url("../assets/img/SBP-btn.png") ;
+	background-size: 75% 100%;
+	background-repeat: no-repeat;
+	position: relative;
+	z-index: -1;
+	margin-bottom: 5%;
+	height: 5.5%;
+
+}
+.dbp {
+
+	color: #000049; 
+	font-size: 4vh; 
+	 left: 15%;
+	 background-image: url("../assets/img/DBP-btn.png") ;
+	background-size: 75% 100%;
+	background-repeat: no-repeat;
+	position: relative;
+	z-index: -1;
+	margin-bottom: 5%;
+	height: 5.5%;
+
+}
+.hr {
+
+	color: #000049; 
+	font-size: 4vh; 
+	 left: 15%;
+	 background-image: url("../assets/img/HR-btn.png") ;
+	background-size: 75% 100%;
+	background-repeat: no-repeat;
+	position: relative;
+	z-index: -1;
+	margin-bottom: 5%;
+	height: 5.5%;
+
+}
+.text{
+	position: relative;
+	left: -8%;
 }

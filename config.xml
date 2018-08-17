@@ -3,7 +3,7 @@
     <name>Hyper</name>
     <description>App for blood preasure management </description>
     <author email="christopherchu96@gmail.com" href="http://ionicframework.com/">Christopher TK Chu</author>
-    <content src="index.html" />
+    <content original-src="index.html" src="http://192.168.1.2:8106" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
@@ -79,7 +79,12 @@
     <plugin name="cordova-plugin-advanced-http" spec="^1.11.1" />
     <allow-navigation href="http://192.168.1.161:8101" />
     <allow-navigation href="http://192.168.1.161:8102" />
+    <allow-navigation href="http://192.168.1.161:8103" />
+    <allow-navigation href="http://192.168.1.2:8102" />
+    <allow-navigation href="http://192.168.1.2:8103" />
+    <allow-navigation href="http://192.168.1.11:8104" />
+    <allow-navigation href="http://192.168.1.2:8105" />
+    <allow-navigation href="http://192.168.1.2:8106" />
     <engine name="ios" spec="^4.5.5" />
     <engine name="android" spec="7.1.1" />
-    <allow-navigation href="http://192.168.1.161:8103" />
 </widget>

@@ -2,7 +2,7 @@ import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { ToastController } from 'ionic-angular';
-
+import { ReportPagePage }    from '../pages/report/report';
 import { LoginPage }    from '../pages/login/login';
 import { RegisterPage } from '../pages/register/register';
 import { ForgotPassPage } from '../pages/forgot-pass/forgot-pass';
@@ -23,7 +23,8 @@ import { WheelSelector } from '@ionic-native/wheel-selector';
     RegisterPage,
     ForgotPassPage,
     ImgEditPage,
-    ImgDetailsPagePage
+    ImgDetailsPagePage,
+    ReportPagePage
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -36,7 +37,8 @@ import { WheelSelector } from '@ionic-native/wheel-selector';
     RegisterPage,
     ForgotPassPage,
     ImgEditPage,
-    ImgDetailsPagePage
+    ImgDetailsPagePage,
+    ReportPagePage
   ],
   providers: [
     StatusBar,
