@@ -6,9 +6,9 @@
 
 
 <ion-content padding class="main-wrapper bg-login">
-   <img  src="assets/img/logo-hm.png">
+   <img  src="assets/img/logo-hm.png" style="height: 18%; width: 70%; margin-top: 20%;">
   <form (ngSubmit)="register()">
-
+    <div style="margin-top: 20%; margin-bottom: 10%;"> 
     <ion-item no-lines class="ion-item" >
       <ion-label style="color: white; font-size: 3vh;" floating >Name</ion-label>
       <ion-input style="color: white; font-size: 3vh;" type="text" [(ngModel)]="formData.name" name="name" clearInput="true"></ion-input>
@@ -23,6 +23,7 @@
       <ion-label style="color: white; font-size: 3vh;" floating>Password</ion-label>
       <ion-input style="color: white; font-size: 3vh;" type="password" [(ngModel)]="formData.pass" name="pass" clearInput="true"></ion-input>
     </ion-item>
+   </div> 
     <input type="image" value="submit"src="../assets/img/register-btn.png" style="width : 30vh ; height :6vh" alt="submit Button" >
     <img src="../assets/img/login-btn.png" style="width : 30vh ; height :6vh" (click)="navCtrl.pop()" >
     <!-- <button ion-button block type="submit">Register</button>

@@ -111,6 +111,7 @@ import { HomePage } from '../home/home';
   	public SBP = '123'; 
   	public DBP = '123'; 
   	public HR = '123'; 
+    public data : any; 
   	public BP_record : any; 
   	public hash : string;
   	public base64Image : string;
@@ -120,8 +121,9 @@ import { HomePage } from '../home/home';
   		private selector: WheelSelector,
   		private toastCtrl: ToastController) {
   		this.BP_record = navParams.get('BP_record')
-  		this.hash = navParams.get('hash')
-  		this.base64Image = navParams.get('base64Image')
+      this.data = navParams.get('data')
+  		this.hash = this.data.hash
+  		this.base64Image = this.data.image
   		this.SBP = this.BP_record['SBP_record'].toString()
   		this.DBP = this.BP_record['DBP_record'].toString() 
   		this.HR = this.BP_record['HR_record'].toString()

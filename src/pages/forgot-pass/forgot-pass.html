@@ -5,8 +5,10 @@
 </ion-header>
  -->
 <ion-content padding class="main-wrapper bg-login">
- <img  src="assets/img/logo-hm.png">
+ <img  src="assets/img/logo-hm.png" style="height: 18%; width: 70%; margin-top: 20%;">
+
   <form (ngSubmit)="resetPass()">
+    <div style="margin-top: 20%; margin-bottom: 10%;"> 
     <p style="color: white; font-size: 3vh; padding-bottom: 2vh;">
       Please enter your Email so we can send you an email to reset your password.
     </p>
@@ -15,6 +17,7 @@
       <ion-label style="color: white; font-size: 3vh;" floating>Email</ion-label>
       <ion-input style="color: white; font-size: 3vh;" type="email" [(ngModel)]="formData.email" name="email" clearInput="true"></ion-input>
     </ion-item>
+  </div>
  <input type="image" value="submit"src="../assets/img/submit-btn.png" style="width : 30vh ; height :6vh" alt="submit Button" >
    <!--  <button ion-button block type="submit">submit</button> -->
   </form>

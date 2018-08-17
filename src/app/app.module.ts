@@ -8,7 +8,7 @@ import { RegisterPage } from '../pages/register/register';
 import { ForgotPassPage } from '../pages/forgot-pass/forgot-pass';
 import { ImgEditPage } from '../pages/img-edit/img-edit';
 import { HomePage }     from '../pages/home/home';
-
+import { ImgDetailsPagePage }     from '../pages/img-details/img-details';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { Camera } from '@ionic-native/camera';
@@ -22,12 +22,11 @@ import { WheelSelector } from '@ionic-native/wheel-selector';
     LoginPage,
     RegisterPage,
     ForgotPassPage,
-    ImgEditPage
+    ImgEditPage,
+    ImgDetailsPagePage
   ],
   imports: [
-    IonicModule.forRoot(MyApp, {
-        server: "http://137.189.62.130:8885/receiver",
-    })
+    IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -36,7 +35,8 @@ import { WheelSelector } from '@ionic-native/wheel-selector';
     LoginPage,
     RegisterPage,
     ForgotPassPage,
-    ImgEditPage
+    ImgEditPage,
+    ImgDetailsPagePage
   ],
   providers: [
     StatusBar,

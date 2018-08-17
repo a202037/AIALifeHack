@@ -6,6 +6,7 @@ import { ImgEditPage } from '../img-edit/img-edit';
 import { LoginPage } from '../login/login';
 import moment from 'moment';
 import * as $ from 'jquery';
+import { ImgDetailsPagePage } from '../img-details/img-details';
 
 @Component({
   selector: 'page-home',
@@ -34,16 +35,12 @@ export class HomePage {
 
     this.question_label = [
     ['BP_machine_model'],
-    ['Photodate'],
-    ['time'],
     ['image'], 
     ['hash'],
     ]
 
     this.form = this.formBuilder.group({
       BP_machine_model: ['', Validators.required],
-      Photodate: ['', Validators.required],
-      Phototime: ['', Validators.required],
       image: [''],
       hash: [''],
     });
@@ -53,30 +50,53 @@ export class HomePage {
 }
 
 takePicture(){
-  Camera.getPicture({
-    destinationType: Camera.DestinationType.DATA_URL,
-    quality: 100,
-    saveToPhotoAlbum: false,
-    correctOrientation: true
-  }).then((imageData) => {
-    this.base64Image = "data:image/jpeg;base64," + imageData;
-  }, (err) => {
-    console.log(err);
-  });
-  
+  var self = this;
+  if (this.form.valid) {
+    Camera.getPicture({
+      destinationType: Camera.DestinationType.DATA_URL,
+      quality: 100,
+      saveToPhotoAlbum: false,
+      correctOrientation: true
+    }).then((imageData) => {
+      this.base64Image = "data:image/jpeg;base64," + imageData;
+
+      self.goToImgDetails();
+    }, (err) => {
+      console.log(err);
+    });
+  } else{
+    let alert = self.alertCtrl.create({
+      title: "Error",
+      subTitle: "Please selcet machine model.",
+      buttons: ["OK"]
+    });
+    alert.present();
+  }
 
 }
 
 accessGallery(){
-  Camera.getPicture({
-    sourceType: Camera.PictureSourceType.PHOTOLIBRARY,
-    destinationType: Camera.DestinationType.DATA_URL
-  }).then((imageData) => {
-    this.base64Image = 'data:image/jpeg;base64,'+imageData;
-  }, (err) => {
-    console.log(err);
-  });
-  
+  var self = this;
+  if (this.form.valid) {
+    Camera.getPicture({
+      sourceType: Camera.PictureSourceType.PHOTOLIBRARY,
+      destinationType: Camera.DestinationType.DATA_URL
+    }).then((imageData) => {
+      this.base64Image = 'data:image/jpeg;base64,'+imageData;
+
+      self.goToImgDetails();
+    }, (err) => {
+      console.log(err);
+    });
+  } else{
+    let alert = self.alertCtrl.create({
+      title: "Error",
+      subTitle: "Please selcet machine model.",
+      buttons: ["OK"]
+    });
+    alert.present();
+
+  }
 } 
 
 getCurrentTime() {
@@ -87,67 +107,32 @@ reload(){
   this.navCtrl.setRoot(this.navCtrl.getActive().component);
 }
 
-goToImgEdit(){
-  this.navCtrl.push(ImgEditPage, { 
-    BP_record: this.BP_record, 
-    hash: this.hash,
-    base64Image: this.base64Image,
-  });
-}
+goToImgDetails(){ 
 
-logout(){
-  this.navCtrl.push(LoginPage);
-
-}
-
-public submit(){
-  var self = this;
-  console.log(this.form.valid, this.base64Image, this.hash)
-  
-  if (this.form.valid) {
-      let loader = this.loadingCtrl.create();
-      loader.present();
       // Change Reuslt for special case
       this.form.controls["image"].setValue(this.base64Image)
       this.form.controls["hash"].setValue(this.hash)
-      console.log("FinalData", JSON.stringify(this.form.value))
-      // $.post(this.config.get('server'), {
-      //     // which: 'profile',
-      //     type: 'json',
-      //     payload: JSON.stringify(this.form.value)
-      //   }, function(Response){
-      //     this.BP_record = Response
-      //     console.log(this.BP_record) 
-      //     },callback()
-      //     )
-      $.ajax({
-        method: "POST", 
-        url: "http://137.189.62.130:8885/receiver", 
-        data: {"data":JSON.stringify(this.form.value)},
-        success: function(data){
-          loader.dismiss();  
-          
-           //console.log(data.DBP_record)
+      //console.log("FinalData", JSON.stringify(this.form.value))
 
-
-           if(data.DBP_record == -1 && data.SBP_record == -1 && data.HR_record == -1){
-             let alert = self.alertCtrl.create({
-               title: "Error",
-               subTitle: "Image cannot be recognized. Please take a new one.",
-               buttons: ["OK"]
-             });
-             self.reload();
-             this.hash = (Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15)).toString();
-             alert.present();
-
-           } else {
-             self.BP_record = data
-             self.goToImgEdit()
-           }           
-         }
-       })
-      
+      this.navCtrl.setRoot(ImgDetailsPagePage, { 
+        data: this.form.value,
+      });
     }
-  }
+
+
+    goToImgEdit(){
+      this.navCtrl.setRoot(ImgEditPage, { 
+        BP_record: this.BP_record, 
+        hash: this.hash,
+        base64Image: this.base64Image,
+      });
+    }
+
+    logout(){
+      this.navCtrl.setRoot(LoginPage);
+
+    }
+
+   
 
 }

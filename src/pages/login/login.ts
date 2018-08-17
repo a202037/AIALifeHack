@@ -12,7 +12,7 @@ import { ForgotPassPage } from '../forgot-pass/forgot-pass';
 export class LoginPage {
   public formData: any;
 
-  constructor(
+  constructor( 
     public navCtrl:     NavController, 
     public navParams:   NavParams,
     public loadingCtrl: LoadingController
