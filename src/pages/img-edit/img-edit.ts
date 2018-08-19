@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, LoadingController } from 'ionic-angular';
 import { WheelSelector } from '@ionic-native/wheel-selector';
 import { ToastController } from 'ionic-angular';
 import * as $ from 'jquery';
@@ -119,6 +119,7 @@ import { HomePage } from '../home/home';
   		public navCtrl: NavController, 
   		public navParams: NavParams, 
   		private selector: WheelSelector,
+      public loadingCtrl: LoadingController,
   		private toastCtrl: ToastController) {
   		this.BP_record = navParams.get('BP_record')
       this.data = navParams.get('data')
@@ -264,6 +265,9 @@ import { HomePage } from '../home/home';
 		this.SBP = this.SBP.replace(regex, '')
 		this.DBP = this.DBP.replace(regex, '')
 		this.HR = this.HR.replace(regex, '')
+    let loader = this.loadingCtrl.create({spinner: 'crescent'
+      });
+        loader.present();
 		console.log(this.SBP, this.DBP, this.HR, this.hash)
       // $.post(this.config.get('server'), {
       //     // which: 'profile',
@@ -282,8 +286,8 @@ import { HomePage } from '../home/home';
       		   "HR" : this.HR, 
       		   "hash" : this.hash})},
       	success: function(data){
+          loader.dismiss()
       		console.log(data)
-      		self.BP_record = data
       		self.goToHome()
       	}
       })

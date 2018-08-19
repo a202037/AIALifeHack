@@ -3,7 +3,7 @@
     <name>Hyper</name>
     <description>App for blood preasure management </description>
     <author email="christopherchu96@gmail.com" href="http://ionicframework.com/">Christopher TK Chu</author>
-    <content original-src="index.html" src="http://192.168.1.2:8106" />
+    <content src="index.html" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
@@ -85,6 +85,7 @@
     <allow-navigation href="http://192.168.1.11:8104" />
     <allow-navigation href="http://192.168.1.2:8105" />
     <allow-navigation href="http://192.168.1.2:8106" />
+    <allow-navigation href="http://192.168.1.2:8107" />
     <engine name="ios" spec="^4.5.5" />
     <engine name="android" spec="7.1.1" />
 </widget>

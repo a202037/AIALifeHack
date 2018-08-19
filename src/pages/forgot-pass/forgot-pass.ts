@@ -22,7 +22,8 @@ export class ForgotPassPage {
   // RESET PASSWORD TASTS
   resetPass(){
     // TODO
-    let loader = this.loadingCtrl.create();
+    let loader = this.loadingCtrl.create({spinner: 'crescent'
+    });
     loader.present();
 
     // IF SUCCESS, RETURN TO LOGIN PAGE

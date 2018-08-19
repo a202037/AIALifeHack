@@ -26,7 +26,9 @@ export class LoginPage {
   // LOGIN TASKS
   login(){
     // TODO
-    let loader = this.loadingCtrl.create();
+    let loader = this.loadingCtrl.create(
+      {spinner: 'crescent'
+    });
     loader.present();
 
     

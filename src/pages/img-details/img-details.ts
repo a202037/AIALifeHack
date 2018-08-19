@@ -72,7 +72,8 @@ export class ImgDetailsPagePage {
        this.form.controls["hash"].setValue(this.data.hash)
 
       var self = this;
-      let loader = this.loadingCtrl.create();
+      let loader = this.loadingCtrl.create({spinner: 'crescent'
+      });
         loader.present();
         console.log(JSON.stringify(this.form.value))
       $.ajax({

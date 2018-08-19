@@ -21,7 +21,9 @@ export class RegisterPage {
   // REGISTER TASKS
   register(){
     // TODO
-    let loader = this.loadingCtrl.create();
+    let loader = this.loadingCtrl.create(
+    {spinner: 'crescent'
+    });
     loader.present();
 
     // IF SUCCESS RETURN TO LOGIN PAGE
