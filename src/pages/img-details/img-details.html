@@ -1,29 +1,34 @@
+<ion-header>
+  <ion-navbar class="header" style="margin-top: 2vh">
+<img  src="assets/img/logo-hm.png" align="left"  style="width :40%; height :10%;">
+  <img src="../assets/img/close-btn.png"  align="right" style="width :10%; height :5%; margin-top: 4%;" (click)="goToHome()">
+  </ion-navbar>
+</ion-header>
+
+
+
 <ion-content padding class="main-wrapper bg-hm">
 
   <!--   <h1 text-center>Ionic login starter</h1> -->
-<img  src="assets/img/logo-hm.png" align="left"  style="width :40%; height :10%;">
-  <img src="../assets/img/close-btn.png"  align="right" style="width :10%; height :5%; margin-top: 8%;" (click)="goToHome()">
-
  
- 
-  <img [src]="base64Image" *ngIf="base64Image" style="width : 100% ; height :50%;" />
+  <img [src]="base64Image" *ngIf="base64Image" style="width : 100% ; height :50%; margin-top: 3vh" />
     <form [formGroup]="form">
     <img  src="../assets/img/phototaken.png" align="middle"  style="width : 60%; height:10% ;margin-top: 5%;">
 
 
     <ion-item no-lines class="date-item" > 
 <!--       <ion-label style="color: white; font-size: 3vh;">Date of photo taken </ion-label> -->
-      <ion-datetime style="color: #000049; font-size: 4vh;  margin-left: 25%;" [(ngModel)]="local_date"  formControlName="Photodate" type="text"  displayFormat="DD MMM YYYY " pickerFormat="YYYY MM DD" [max]="getCurrentTime()" ></ion-datetime>   
+      <ion-datetime style="color: white; font-size: 4vh;  margin-left: 20%;" [(ngModel)]="local_date"  formControlName="Photodate" type="text"  displayFormat="DD MMM YYYY " pickerFormat="YYYY MM DD" [max]="getCurrentTime()" ></ion-datetime>   
       
     </ion-item>
     <ion-item  no-lines class="time-item"> 
      <!--  <ion-label style="color: white; font-size: 3vh;">Time of photo taken </ion-label> -->
-      <ion-datetime style="color: #000049; font-size: 4vh; margin-left: 30%;" [(ngModel)]="local_time"  placeholder="Please select time" formControlName="Phototime" type="text"  displayFormat="hh:mm A" pickerFormat="hh:mm A" ></ion-datetime>     
+      <ion-datetime style="color: white; font-size: 4vh; margin-left: 28%;" [(ngModel)]="local_time"  placeholder="Please select time" formControlName="Phototime" type="text"  displayFormat="hh:mm A" pickerFormat="hh:mm A" ></ion-datetime>     
     </ion-item>
   </form>
 
   <ion-col style="text-align: center">
-  	<img src="../assets/img/submit-btn.png" style="width : 30vh ; height :8vh; margin-top: 5%" (click)="submit()">
+  	<img src="../assets/img/submit-btn.png" style="width : 30vh ; height :6vh; margin-top: 5%" (click)="submit()">
 <!--   	<button  *ngIf="base64Image" ion-button round large type="button" (click)="submit()">OK</button> -->
   </ion-col>
 </ion-content>
