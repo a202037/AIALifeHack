@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild} from '@angular/core';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
-import { Config, NavParams, NavController, AlertController, LoadingController} from 'ionic-angular';
+import { Config, NavParams, NavController, AlertController, LoadingController, Select} from 'ionic-angular';
 import {Camera} from 'ionic-native';
 import { ImgEditPage } from '../img-edit/img-edit';
 import { LoginPage } from '../login/login';
@@ -19,13 +19,16 @@ export class HomePage {
   private question_label = null;
   public BP_record : any;
   public hash : string; 
+  @ViewChild(Select) select: Select;
   constructor( 
     public navCtrl: NavController,
     private formBuilder: FormBuilder,
     public navParams: NavParams, 
     private config: Config,
     private alertCtrl: AlertController,
-    public loadingCtrl: LoadingController
+    public loadingCtrl: LoadingController,
+ 
+
     
     ) {
 
@@ -66,7 +69,9 @@ takePicture(){
       subTitle: "Please selcet machine model.",
       buttons: ["OK"]
     });
+    this.select.open();
     alert.present();
+     
   }
 
 }
@@ -90,7 +95,10 @@ accessGallery(){
       subTitle: "Please selcet machine model.",
       buttons: ["OK"]
     });
+    this.select.open();
     alert.present();
+
+    
 
   }
 } 

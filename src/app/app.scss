@@ -89,7 +89,7 @@ ion-img{
 }
 
 .select-icon {
-		visibility: hidden;
+	visibility: hidden;
 }   // remvoe the caret in ion-select//
 
 
@@ -101,8 +101,10 @@ ion-img{
 
 // ionic-selct wrapper//
 .myCustomSelect{
-  max-width: 90% !important;
-  min-width: 90% !important;
+  max-width: 45vh !important;
+  min-width: 45vh !important;
+  min-height: 10vh !important;
+  max-height: 10vh !important;
 
 }
 
