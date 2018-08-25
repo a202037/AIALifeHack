@@ -133,12 +133,20 @@ import moment from 'moment';
   		private toastCtrl: ToastController) {
       this.question_label = [
       ['Photodate'],
-      ['Phototime']
+      ['Phototime'],
+      ['DBP'],
+      ['SBP'],
+      ['HR'],
+      ['hash']
       ]
 
       this.form = this.formBuilder.group({
         Photodate: [''],
         Phototime: [''],
+        DBP: [''],
+        SBP: [''],
+        HR: [''],
+        hash: [''],
 
       });
 
@@ -295,9 +303,9 @@ import moment from 'moment';
         loader.present();
 		console.log(this.SBP, this.DBP, this.HR, this.hash)
     this.form.controls["DBP"].setValue(this.DBP)
-    this.form.controls["HR"].setValue(this.data.HR)
+    this.form.controls["HR"].setValue(this.HR)
     this.form.controls["SBP"].setValue(this.SBP)
-    this.form.controls["SBP"].setValue(this.hash)
+    this.form.controls["hash"].setValue(this.hash)
       $.ajax({
       	method: "POST", 
       	url: "http://137.189.62.130:8885/update", 

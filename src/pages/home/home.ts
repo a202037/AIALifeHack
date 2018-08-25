@@ -109,17 +109,17 @@ reload(){
   this.navCtrl.setRoot(this.navCtrl.getActive().component);
 }
 
-goToImgDetails(){ 
+// goToImgDetails(){ 
 
-      // Change Reuslt for special case
-      this.form.controls["image"].setValue(this.base64Image)
-      this.form.controls["hash"].setValue(this.hash)
-      //console.log("FinalData", JSON.stringify(this.form.value))
+//       // Change Reuslt for special case
+//       this.form.controls["image"].setValue(this.base64Image)
+//       this.form.controls["hash"].setValue(this.hash)
+//       //console.log("FinalData", JSON.stringify(this.form.value))
 
-      this.navCtrl.setRoot(ImgDetailsPagePage, { 
-        data: this.form.value,
-      });
-    }
+//       this.navCtrl.setRoot(ImgDetailsPagePage, { 
+//         data: this.form.value,
+//       });
+//     }
 
 
     goToImgEdit(){
@@ -142,7 +142,7 @@ goToImgDetails(){
 
      public submit(){
        this.form.controls["image"].setValue(this.base64Image)
-
+       this.form.controls["hash"].setValue(this.hash)
       var self = this;
       let loader = this.loadingCtrl.create({spinner: 'crescent'
       });

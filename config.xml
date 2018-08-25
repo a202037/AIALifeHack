@@ -3,7 +3,7 @@
     <name>Cap.AI</name>
     <description>App for BP readings capture </description>
     <author email="christopherchu96@gmail.com" href="http://ionicframework.com/">Christopher T.K. Chu</author>
-    <content original-src="index.html" src="http://192.168.1.2:8104" />
+    <content original-src="index.html" src="http://192.168.1.2:8106" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
