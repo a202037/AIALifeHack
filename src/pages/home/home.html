@@ -1,23 +1,23 @@
 <ion-header>
-  <ion-navbar class="header" style="margin-top: 2vh">
+  <ion-navbar class="header" style="margin-top: 2vh; margin-bottom: 1vh;">
    <img  src="assets/img/logo-hm.png" align="left"  style="width :40%; height :10%;">
   <img src="../assets/img/logout-btn.png" align="right" style="width : 13% ; height :8%;" (click)="logout()" >
+
   </ion-navbar>
 </ion-header>
 
 <ion-content padding class="main-wrapper bg-hm scroll-content">
 
   <!--   <h1 text-center>Ionic login starter</h1> -->
-<div >
 
-  </div>
-
+<div style="margin-top: 1vh; margin-bottom: 6vh;"> 
   <form [formGroup]="form">
-    <img  src="../assets/img/BPmodel.png" align="middle"  style="width : 80%; height:20% ;margin: 10%;">
+    <img  src="../assets/img/BPmodel.png" align="middle"  style="width : 65%; height:20% ;margin-top: 10%; margin-bottom: 1%;">
 
     <ion-item no-lines class="ion-select-bpmachine">
      <!-- <ion-label style="color: white; font-size: 3vh;">BP Machine Model</ion-label> -->
       <ion-select class="myCustomSelect" okText="Okay" interface="popover" cancelText="Dismiss" style="color: white; font-size: 2.2vh;" required formControlName="BP_machine_model">
+        <ion-option text-wrap value="AND_UA-853">A&D UA-853</ion-option>
         <ion-option text-wrap value="OmronHEM-7113">Omron HEM-7113</ion-option>
         <ion-option text-wrap  value="IhealthWristWirelessTensiometer">Ihealth BP7 wrist</ion-option>
       </ion-select>
@@ -34,6 +34,7 @@
       <ion-datetime style="color: #000049; font-size: 3vh;" [(ngModel)]="local_time"  placeholder="Please select time" formControlName="Phototime" type="text"  displayFormat="hh:mm A" pickerFormat="hh:mm A" ></ion-datetime>     
     </ion-item> -->
   </form>
+</div>
   <img src="../assets/img/camera-btn.png"  style="width : 40vh ; height :13vh; margin-bottom: 3vh;  margin-top: 3vh" (click)="takePicture()" >
    <img src="../assets/img/choosephoto-btn.png"   style="width : 40vh ; height :13vh; margin-bottom: 3vh" (click)="accessGallery()" >
    <img src="../assets/img/report-btn.png"  style="width : 40vh ; height :13vh; margin-bottom: 3vh" (click)=" goToReport()">

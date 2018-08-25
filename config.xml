@@ -2,8 +2,8 @@
 <widget id="io.ionic.starter" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>Cap.AI</name>
     <description>App for BP readings capture </description>
-    <author email="christopherchu96@gmail.com" href="http://ionicframework.com/">Christopher TK Chu</author>
-    <content src="index.html" />
+    <author email="christopherchu96@gmail.com" href="http://ionicframework.com/">Christopher T.K. Chu</author>
+    <content original-src="index.html" src="http://192.168.1.2:8104" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
@@ -88,6 +88,7 @@
     <allow-navigation href="http://192.168.1.2:8107" />
     <allow-navigation href="http://192.168.1.2:8108" />
     <allow-navigation href="http://192.168.1.2:8109" />
-    <engine name="android" spec="7.1.1" />
+    <allow-navigation href="http://192.168.1.2:8104" sessionid="ba6133fd" />
     <engine name="ios" spec="4.5.5" />
+    <engine name="android" spec="7.0.0" />
 </widget>

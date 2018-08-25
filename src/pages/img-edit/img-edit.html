@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-navbar class="header" style="margin-top: 2vh">
+  <ion-navbar class="header" style="margin-top: 2vh; margin-bottom: 1vh;">
 <img  src="assets/img/logo-hm.png" align="left"  style="width :40%; height :10%;">
   <img src="../assets/img/close-btn.png"  align="right" style="width :10%; height :5%; margin-top: 4%;" (click)="goToHome()">
   </ion-navbar>
@@ -9,42 +9,29 @@
 <ion-content padding class="main-wrapper bg-hm scroll-content">
 
   <img [src]="base64Image" *ngIf="base64Image" style="width : 100% ; height :50%; margin-top: 3.5vh" />
-  <img  src="../assets/img/BPrecord.png" align="middle"  style="width : 60%; height:8% ;margin-top: 3%; position: relative;">
+  <img  src="../assets/img/BPrecord.png" align="middle" class="bprecord" align="middle" >
 
-  <!-- <img  src="" align="middle"  style="width : 70%; height:7% ; margin: 1%; position: relative;" >   -->
-  <div class="sbp" (click)="SBP_select()">  <p class="text">{{SBP}} mmHg</p></div>
-  <div class="dbp" (click)="DBP_select()">  <p class="text">{{DBP}} mmHg</p></div>
-  <div class="hr" (click)="HR_select()">  <p class="text">{{HR}} mmHg</p></div>
-   <!-- <img  src="../assets/img/DBP-btn.png" align="middle"  style="width : 70%; height:7% ;margin: 1%; position: relative;" (click)="DBP_select()">
-    <img  src="../assets/img/HR-btn.png" align="middle"  style="width : 70%; height:7% ;margin: 1%; position: relative;" (click)="HR_select()"> -->
-  
-<!--   <ion-card>
 
-    <ion-card-header>
-      SBP: {{SBP}} mmHg
-    </ion-card-header>
-    <ion-card-content>
-      <button ion-button round  type="button" (click)="SBP_select()">Edit</button>
-    </ion-card-content>
-  </ion-card>
-  <ion-card>
-    <ion-card-header>
-      DBP: {{DBP}} mmHg
-    </ion-card-header>
-    <ion-card-content>
-      <button ion-button round  type="button" (click)="DBP_select()">Edit</button>
-    </ion-card-content>
-  </ion-card>
-  <ion-card>
-    <ion-card-header>
-      HR: {{HR}} bpm
-    </ion-card-header>
-    <ion-card-content>
-      <button ion-button round  type="button" (click)="HR_select()">Edit</button>
-    </ion-card-content>
-  </ion-card> -->
+  <div class="sbp" (click)="SBP_select()">  <p class="SBPtext">{{SBP}} mmHg</p></div>
+  <div class="dbp" (click)="DBP_select()">  <p class="DBPtext">{{DBP}} mmHg</p></div>
+  <div class="hr" (click)="HR_select()">  <p class="HRtext">{{HR}} mmHg</p></div>
+
+<form [formGroup]="form">
+    <img  src="../assets/img/phototaken.png" align="middle"  style="width : 50%; height:10% ;margin-top: 5%;">
+
+
+    <ion-item no-lines class="date-item" > 
+<!--       <ion-label style="color: white; font-size: 3vh;">Date of photo taken </ion-label> -->
+      <ion-datetime style="color: white; font-size: 4vh;  margin-left: 20%;" [(ngModel)]="local_date"  formControlName="Photodate" type="text"  displayFormat="DD MMM YYYY " pickerFormat="YYYY MM DD" [max]="getCurrentTime()" ></ion-datetime>   
+      
+    </ion-item>
+    <ion-item  no-lines class="time-item"> 
+     <!--  <ion-label style="color: white; font-size: 3vh;">Time of photo taken </ion-label> -->
+      <ion-datetime style="color: white; font-size: 4vh; margin-left: 28%;" [(ngModel)]="local_time"  placeholder="Please select time" formControlName="Phototime" type="text"  displayFormat="hh:mm A" pickerFormat="hh:mm A" ></ion-datetime>     
+    </ion-item>
+  </form>
 
   
 
- <img src="../assets/img/submit-btn.png" style="width : 30vh ; height :8vh;" (click)="submit()">
+ <img src="../assets/img/submit-btn.png" style="width : 30vh ; height :8vh; margin-top: 5%;" (click)="submit()">
 </ion-content>

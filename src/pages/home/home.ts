@@ -59,10 +59,11 @@ takePicture(){
     }).then((imageData) => {
       this.base64Image = "data:image/jpeg;base64," + imageData;
 
-      self.goToImgDetails();
+      self.submit();
     }, (err) => {
       console.log(err);
     });
+    
   } else{
     let alert = self.alertCtrl.create({
       title: "Error",
@@ -85,10 +86,11 @@ accessGallery(){
     }).then((imageData) => {
       this.base64Image = 'data:image/jpeg;base64,'+imageData;
 
-      self.goToImgDetails();
+     self.submit()
     }, (err) => {
       console.log(err);
     });
+
   } else{
     let alert = self.alertCtrl.create({
       title: "Error",
@@ -137,6 +139,43 @@ goToImgDetails(){
       this.navCtrl.setRoot(ReportPagePage);
 
     }
+
+     public submit(){
+       this.form.controls["image"].setValue(this.base64Image)
+
+      var self = this;
+      let loader = this.loadingCtrl.create({spinner: 'crescent'
+      });
+        loader.present();
+        console.log(JSON.stringify(this.form.value))
+      $.ajax({
+        method: "POST", 
+        url: "http://137.189.62.130:8885/receiver", 
+        data: {"data": JSON.stringify(this.form.value)},
+        success: function(data){
+          loader.dismiss();  
+          
+           //console.log(data.DBP_record)
+
+
+           if(data.DBP_record == -1 && data.SBP_record == -1 && data.HR_record == -1){
+             let alert = self.alertCtrl.create({
+               title: "Error",
+               subTitle: "Image cannot be recognized. Please take a new one.",
+               buttons: ["OK"]
+             });
+             alert.present();
+             self.reload();
+
+           } else {
+             self.BP_record = data
+             self.goToImgEdit()
+           }           
+         }
+       })
+      
+    
+  }
 
 
   }
