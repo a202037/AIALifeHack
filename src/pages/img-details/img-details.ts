@@ -41,7 +41,7 @@ export class ImgDetailsPagePage {
     this.form = this.formBuilder.group({
       BP_machine_model: [''],
       image: [''],
-      hash: [''],
+      hash: [''], 
       Photodate: [''],
       Phototime: [''],
 
