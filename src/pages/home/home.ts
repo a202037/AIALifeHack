@@ -54,7 +54,7 @@ takePicture(){
     Camera.getPicture({
       destinationType: Camera.DestinationType.DATA_URL,
       quality: 100,
-      saveToPhotoAlbum: false,
+      saveToPhotoAlbum: true,
       correctOrientation: true
     }).then((imageData) => {
       this.base64Image = "data:image/jpeg;base64," + imageData;
