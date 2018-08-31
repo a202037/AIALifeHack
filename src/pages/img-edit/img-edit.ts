@@ -294,10 +294,10 @@ import moment from 'moment';
 
 		public submit(){
 		var self = this;
-		var regex = /0/gi;
-		this.SBP = this.SBP.replace(regex, '')
-		this.DBP = this.DBP.replace(regex, '')
-		this.HR = this.HR.replace(regex, '')
+		// var regex = /0/gi;
+		// this.SBP = this.SBP.replace(regex, '')
+		// this.DBP = this.DBP.replace(regex, '')
+		// this.HR = this.HR.replace(regex, '')
     let loader = this.loadingCtrl.create({spinner: 'crescent'
       });
         loader.present();
