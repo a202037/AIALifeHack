@@ -1,14 +1,9 @@
-<!-- <ion-header>
-  <ion-navbar color="primary">
-    <ion-title>Hyper</ion-title>
-  </ion-navbar>
-</ion-header> -->
-<!--   <ion-img width="300" height="240" src="assets/imgs/hyper.png"></ion-img> -->
+
 
 <ion-content padding class="main-wrapper bg-login" >
   <img  src="assets/img/logo-hm.png" style="height: 15vh; width: 35vh; margin-top: 20%;">
-  <form (ngSubmit)="login()">
-    <div style="margin-top: 20%; margin-bottom: 10%;">  
+  <form (ngSubmit)="login()" class="main-wrapper">
+    <div style="margin-top: 20%; margin-bottom: 15%;">  
     <ion-item no-lines class="email ion-item">
       <ion-label floating style="color: white; font-size: 3vh;">Email</ion-label>
       <ion-input   style="color: white; font-size: 3vh;" type="email" [(ngModel)]="formData.email" name="email" clearInput="true"></ion-input>
@@ -18,15 +13,16 @@
       <ion-label floating style="color: white; font-size: 3vh;">Password</ion-label>
       <ion-input style="color: white; font-size: 3vh;"type="password" [(ngModel)]="formData.pass" name="pass" clearInput="true"></ion-input>
     </ion-item>
-   <!--  <p text-right style="margin-top: 0px; padding-top: 0px;">
-      <button class="text-right" ion-button clear type="button" style="color: white;" (click)="goToForgotPass()">Forgot password</button>
-    </p> -->
-  <img src="../assets/img/forgotpass-btn.png" align="right" style="width : 23vh ; height :4vh; margin-bottom: 3vh;" (click)="goToForgotPass()" >
+
+  <img src="../assets/img/forgotpass-btn.png" align="right" style="width : 23vh ; height :4vh; margin-bottom: 3vh;" (click)="goToForgotPass()">
   </div>
-    <img src="../assets/img/login-btn.png" style="width : 30vh ; height :7vh" (click)="login()" type="submit">
-    <img src="../assets/img/register-btn.png" style="width : 30vh ; height :7vh" (click)="goToRegister()" >
-    <!-- <button ion-button block type="submit" > <img src="../assets/img/login-btn.png"></button> -->
-    <!-- <button ion-button block type="button" outline (click)="goToRegister()">Register</button> -->
+
+    <img src="../assets/img/login-btn.png"  style="width : 30vh ; height :7vh;" (click)="login()" type="submit">
+    <img src="../assets/img/register-btn.png" style="width : 30vh ; height :7vh;" (click)="goToRegister()" >
+
+
+<!--    <button src="../assets/img/register-btn.png" type="submit" > </button> 
+   <button ion-button block type="button" outline (click)="goToRegister()">Register</button> -->
   </form>
 
 </ion-content>

@@ -67,7 +67,7 @@ takePicture(){
   } else{
     let alert = self.alertCtrl.create({
       title: "Error",
-      subTitle: "Please selcet machine model.",
+      subTitle: "Please select machine model.",
       buttons: ["OK"]
     });
     this.select.open();
@@ -82,7 +82,8 @@ accessGallery(){
   if (this.form.valid) {
     Camera.getPicture({
       sourceType: Camera.PictureSourceType.PHOTOLIBRARY,
-      destinationType: Camera.DestinationType.DATA_URL
+      destinationType: Camera.DestinationType.DATA_URL,
+      correctOrientation: true
     }).then((imageData) => {
       this.base64Image = 'data:image/jpeg;base64,'+imageData;
 
@@ -94,7 +95,7 @@ accessGallery(){
   } else{
     let alert = self.alertCtrl.create({
       title: "Error",
-      subTitle: "Please selcet machine model.",
+      subTitle: "Please select machine model.",
       buttons: ["OK"]
     });
     this.select.open();
