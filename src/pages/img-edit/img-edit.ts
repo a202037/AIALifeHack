@@ -189,6 +189,7 @@ import moment from 'moment';
 				],
 				positiveButtonText: 'Select',
 				negativeButtonText: 'Cancel',
+        wrapWheelText: true, 
 				theme: 'dark',
 				defaultItems: [ 
 				{ index: 0, value: this.SBP[0] },
@@ -225,6 +226,7 @@ import moment from 'moment';
 
 				],
 				positiveButtonText: 'Select',
+        wrapWheelText: true,
 				negativeButtonText: 'Cancel',
 				defaultItems: [ 
 				{ index: 0, value: this.DBP[0] },
@@ -260,6 +262,7 @@ import moment from 'moment';
 
 				],
 				positiveButtonText: 'Select',
+        wrapWheelText: true,
 				negativeButtonText: 'Cancel',
 				defaultItems: [ 
 				{ index: 0, value: this.HR[0] },

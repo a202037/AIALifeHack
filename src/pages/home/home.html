@@ -35,9 +35,9 @@
     </ion-item> -->
   </form>
 </div>
-  <img src="../assets/img/camera-btn.png"  style="width : 40vh ; height :13vh; margin-bottom: 3vh;  margin-top: 3vh" (click)="takePicture()" >
-   <img src="../assets/img/choosephoto-btn.png"   style="width : 40vh ; height :13vh; margin-bottom: 3vh" (click)="accessGallery()" >
-   <img src="../assets/img/report-btn.png"  style="width : 40vh ; height :13vh; margin-bottom: 3vh" (click)=" goToReport()">
+  <img *ngIf="form.value['BP_machine_model'] != ''" src="../assets/img/camera-btn.png"  style="width : 40vh ; height :13vh; margin-bottom: 3vh;  margin-top: 3vh" (click)="takePicture()" >
+   <img *ngIf="form.value['BP_machine_model'] != ''" src="../assets/img/choosephoto-btn.png"   style="width : 40vh ; height :13vh; margin-bottom: 3vh" (click)="accessGallery()" >
+   <img *ngIf="form.value['BP_machine_model'] != ''" src="../assets/img/report-btn.png"  style="width : 40vh ; height :13vh; margin-bottom: 3vh" (click)=" goToReport()">
 
   <!-- <img [src]="base64Image" *ngIf="base64Image" />
   <ion-col style="text-align: center">
