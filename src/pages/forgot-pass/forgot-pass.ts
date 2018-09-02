@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams, LoadingController } from 'ionic-angular';
-
 @Component({
   selector:    'page-forgot-pass',
   templateUrl: 'forgot-pass.html'
@@ -14,6 +13,7 @@ export class ForgotPassPage {
     public loadingCtrl: LoadingController
   ) {
     this.formData = { };
+
   }
 
   ionViewDidLoad() {

@@ -23,7 +23,7 @@ export class MyApp {
     // this.rootPage = HomePage;
 
     platform.ready().then(() => {
-      statusBar.styleDefault();
+      statusBar.hide();
       splashScreen.hide();
     });
   }
