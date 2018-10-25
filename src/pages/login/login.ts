@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams, LoadingController } from 'ionic-angular';
-
+import * as $ from 'jquery';
 import { HomePage } from '../home/home';
 import { RegisterPage } from '../register/register';
 import { ForgotPassPage } from '../forgot-pass/forgot-pass';
@@ -19,24 +19,36 @@ export class LoginPage {
   ) {
     this.formData = { };
   }
-
+ 
   ionViewDidLoad() {
   }
 
   // LOGIN TASKS
   login(){
     // TODO
-    let loader = this.loadingCtrl.create(
-      {spinner: 'crescent'
-    });
-    loader.present();
+    // let loader = this.loadingCtrl.create(
+    //   {spinner: 'crescent'
+    // });
+    // loader.present();
 
-    
-    // IF SUCCESS GO TO HOME PAGE
-    setTimeout(() => {  // THIS TIMEOUT IS UNNECESSARY, IT'S JUST FOR THE EXAMPLE
-      loader.dismiss();
-      this.navCtrl.setRoot(HomePage, {}, { animate: true });  // GO TO HOME PAGE
-    }, 1000);
+    // setTimeout(() => {  
+    //   loader.dismiss();
+    //   this.navCtrl.setRoot(HomePage, {}, { animate: true });  
+    // }, 1000);
+    //console.log(this.formData)
+      $.ajax({
+        method: "POST", 
+        url: "http://137.189.62.130:8885/login", 
+        crossDomain:true,
+        data: {"data": JSON.stringify(this.formData)},
+        success: function(data){
+   
+          
+           console.log(data)
+
+         
+         }
+      })
   }
 
   // GO TO FORGOT PASSWORD PAGE
