@@ -17,6 +17,12 @@ export class ForgotPassPage {
   }
 
   ionViewDidLoad() {
+         let elements = document.querySelectorAll(".tabbar");
+    if (elements != null) {
+        Object.keys(elements).map((key) => {
+            elements[key].style.display = 'none';
+        });
+    }
   }
 
   // RESET PASSWORD TASTS

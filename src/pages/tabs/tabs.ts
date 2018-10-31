@@ -5,6 +5,7 @@ import { SettingsPagePage } from '../settings/settings';
 @Component({
   templateUrl: 'tabs.html'
 })
+
 export class TabsPage {
 
   tab1Root = HomePage;
@@ -12,6 +13,6 @@ export class TabsPage {
 
 
   constructor() {
-
+  	
   }
 }

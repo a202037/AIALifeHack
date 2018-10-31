@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="io.ionic.starter" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>Cap.AI</name>
+    <name>Health CAP</name>
     <description>App for BP readings capture </description>
     <author email="christopherchu96@gmail.com" href="http://ionicframework.com/">Christopher T.K. Chu</author>
     <content src="index.html" />
@@ -11,6 +11,7 @@
     <allow-intent href="sms:*" />
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
+    <preference name="loadUrlTimeoutValue" value="700000" />
     <preference name="ScrollEnabled" value="false" />
     <preference name="android-minSdkVersion" value="19" />
     <preference name="BackupWebStorage" value="none" />
@@ -72,7 +73,6 @@
     <plugin name="cordova-plugin-whitelist" spec="~1.3.3" />
     <plugin name="cordova-plugin-device" spec="~2.0.2" />
     <plugin name="cordova-plugin-splashscreen" spec="~5.0.2" />
-    <plugin name="cordova-plugin-ionic-webview" spec="^2.0.0" />
     <plugin name="cordova-plugin-ionic-keyboard" spec="^2.0.5" />
     <plugin name="cordova-plugin-telerik-imagepicker" spec="~2.2.2">
         <variable name="PHOTO_LIBRARY_USAGE_DESCRIPTION" value="your usage message" />
@@ -94,6 +94,10 @@
     <allow-navigation href="http://192.168.1.2:8111" sessionid="9bd14074" />
     <allow-navigation href="http://192.168.1.2:8112" sessionid="3cae2915" />
     <plugin name="cordova-plugin-statusbar" spec="^2.4.2" />
+    <allow-navigation href="http://192.168.1.2:8129" sessionid="cbba5639" />
+    <plugin name="cordova-plugin-ionic-webview" spec="^2.2.0" />
+    <allow-navigation href="http://192.168.1.2:8130" sessionid="98c64969" />
+    <allow-navigation href="http://192.168.1.2:8131" sessionid="2a126c5d" />
     <engine name="ios" spec="4.5.5" />
-    <engine name="android" spec="^7.1.1" />
+    <engine name="android" spec="7.1.1" />
 </widget>
