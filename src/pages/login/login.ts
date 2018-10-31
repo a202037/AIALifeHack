@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, Validators, } from '@angular/forms';
 import * as $ from 'jquery';
 import { HomePage } from '../home/home';
 import { RegisterPage } from '../register/register';
+import { TabsPage } from '../tabs/tabs';
 import { ForgotPassPage } from '../forgot-pass/forgot-pass';
 import * as md5 from 'js-md5';
 
@@ -79,7 +80,7 @@ export class LoginPage {
           success: function(data){   
             console.log(data)
             if(data['email'] == true && data['pass'] == true){
-              self.navCtrl.setRoot(HomePage);  
+              self.navCtrl.setRoot(TabsPage);  
             } else{
               let alert = self.alertCtrl.create({
                 subTitle: "Please fill in correct email/password",

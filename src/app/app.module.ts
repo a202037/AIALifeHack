@@ -13,7 +13,8 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { Camera } from '@ionic-native/camera';
 import { WheelSelector } from '@ionic-native/wheel-selector';
-
+import { TabsPage } from '../pages/tabs/tabs';
+import { SettingsPagePage } from '../pages/settings/settings';
 @NgModule({
   declarations: [
     MyApp,
@@ -23,7 +24,9 @@ import { WheelSelector } from '@ionic-native/wheel-selector';
     ForgotPassPage,
     ImgEditPage,
     ImgDetailsPagePage,
-    ReportPagePage
+    ReportPagePage,
+    SettingsPagePage,
+    TabsPage
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -37,7 +40,9 @@ import { WheelSelector } from '@ionic-native/wheel-selector';
     ForgotPassPage,
     ImgEditPage,
     ImgDetailsPagePage,
-    ReportPagePage
+    ReportPagePage,
+    SettingsPagePage,
+    TabsPage
   ],
   providers: [
     StatusBar,

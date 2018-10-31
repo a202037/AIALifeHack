@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-
+import { TabsPage } from '../pages/tabs/tabs';
 import { HomePage }  from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
 import { ImgEditPage } from '../img-edit/img-edit';
@@ -19,7 +19,7 @@ export class MyApp {
   ) {
     //  TODO
     // Ask if logged in
-    this.rootPage = LoginPage;
+    this.rootPage = TabsPage;
     // this.rootPage = HomePage;
 
     platform.ready().then(() => {
