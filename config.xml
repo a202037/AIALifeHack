@@ -98,6 +98,8 @@
     <plugin name="cordova-plugin-ionic-webview" spec="^2.2.0" />
     <allow-navigation href="http://192.168.1.2:8130" sessionid="98c64969" />
     <allow-navigation href="http://192.168.1.2:8131" sessionid="2a126c5d" />
+    <plugin name="cordova-sqlite-storage" spec="^2.5.1" />
+    <allow-navigation href="http://192.168.1.161:8115" sessionid="5807b26c" />
     <engine name="android" spec="7.1.1" />
     <engine name="ios" spec="4.5.5" />
 </widget>

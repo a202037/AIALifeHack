@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Config, NavParams, NavController, AlertController, LoadingController } from 'ionic-angular';
 import { HomePage } from '../home/home';
+import { Storage } from '@ionic/storage';
 /*
   Generated class for the ReportPage page.
 
@@ -18,12 +19,15 @@ export class ReportPagePage {
     public navParams: NavParams, 
     private config: Config,
     private alertCtrl: AlertController,
-    public loadingCtrl: LoadingController,) {
+    public loadingCtrl: LoadingController,
+    private storage: Storage,) {
   	
   }
 
   goToHome(){
+    this.storage.set('login', 'false');
     	this.navCtrl.setRoot(HomePage);
+      
 
     }
 

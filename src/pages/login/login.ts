@@ -7,6 +7,7 @@ import { RegisterPage } from '../register/register';
 import { TabsPage } from '../tabs/tabs';
 import { ForgotPassPage } from '../forgot-pass/forgot-pass';
 import * as md5 from 'js-md5';
+import { Storage } from '@ionic/storage';
 
 @Component({
   selector:    'page-login',
@@ -35,6 +36,7 @@ export class LoginPage {
     public loadingCtrl: LoadingController,
     private formBuilder: FormBuilder,
     private alertCtrl: AlertController,
+    private storage: Storage,
     ) {
     //this.formData = { }; 
     this.question_label = [
@@ -88,6 +90,7 @@ export class LoginPage {
             console.log(data)
             if(data['email'] == true && data['pass'] == true){
               self.navCtrl.setRoot(TabsPage);  
+              self.storage.set('login', 'true');
             } else{
               let alert = self.alertCtrl.create({
                 subTitle: "Please fill in correct email/password",

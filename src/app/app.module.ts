@@ -15,6 +15,7 @@ import { Camera } from '@ionic-native/camera';
 import { WheelSelector } from '@ionic-native/wheel-selector';
 import { TabsPage } from '../pages/tabs/tabs';
 import { SettingsPagePage } from '../pages/settings/settings';
+import { IonicStorageModule } from '@ionic/storage';
 @NgModule({
   declarations: [
     MyApp,
@@ -29,7 +30,8 @@ import { SettingsPagePage } from '../pages/settings/settings';
     TabsPage
   ],
   imports: [
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [

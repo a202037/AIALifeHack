@@ -8,6 +8,7 @@ import { ReportPagePage } from '../report/report';
 import moment from 'moment';
 import * as $ from 'jquery';
 import { ImgDetailsPagePage } from '../img-details/img-details';
+import { Storage } from '@ionic/storage';
 
 @Component({
   selector: 'page-home',
@@ -27,6 +28,7 @@ export class HomePage {
     private config: Config,
     private alertCtrl: AlertController,
     public loadingCtrl: LoadingController,
+    private storage: Storage,
  
 
     
@@ -132,6 +134,7 @@ reload(){
     }
 
     logout(){
+      this.storage.set('login', 'false');
       this.navCtrl.setRoot(LoginPage);
 
     }
