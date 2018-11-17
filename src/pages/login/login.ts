@@ -68,45 +68,17 @@ export class LoginPage {
   // LOGIN TASKS
   login(){
     // TODO
-    // let loader = this.loadingCtrl.create(
-    //   {spinner: 'crescent'
-    // });
-    // loader.present();
+    let loader = this.loadingCtrl.create(
+      {spinner: 'crescent'
+    });
+    loader.present();
 
-    // setTimeout(() => {  
-      //   loader.dismiss();
-      //   this.navCtrl.setRoot(HomePage, {}, { animate: true });  
-      // }, 1000);
+    setTimeout(() => {  
+        loader.dismiss();
+        this.navCtrl.setRoot(TabsPage, {}, { animate: true });  
+      }, 1000);
       
-      var self = this;
-      this.form.value['pass'] = md5(this.form.value['pass'])
-      if (this.form.valid){
-        $.ajax({
-          method: "POST", 
-          url: "http://137.189.62.130:8885/login", 
-          crossDomain:true,
-          data: {"data": JSON.stringify(this.form.value)},
-          success: function(data){   
-            console.log(data)
-            if(data['email'] == true && data['pass'] == true){
-              self.navCtrl.setRoot(TabsPage);  
-              self.storage.set('login', 'true');
-            } else{
-              let alert = self.alertCtrl.create({
-                subTitle: "Please fill in correct email/password",
-                buttons: ["OK"]
-              });
-              alert.present();
-            }
-          } 
-        })
-      } else {
-        let alert = self.alertCtrl.create({
-          subTitle: "Please fill in correct email/password",
-          buttons: ["OK"]
-        });
-        alert.present();
-      }
+ 
     }
 
     // GO TO FORGOT PASSWORD PAGE

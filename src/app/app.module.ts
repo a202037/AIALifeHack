@@ -6,9 +6,7 @@ import { ReportPagePage }    from '../pages/report/report';
 import { LoginPage }    from '../pages/login/login';
 import { RegisterPage } from '../pages/register/register';
 import { ForgotPassPage } from '../pages/forgot-pass/forgot-pass';
-import { ImgEditPage } from '../pages/img-edit/img-edit';
 import { HomePage }     from '../pages/home/home';
-import { ImgDetailsPagePage }     from '../pages/img-details/img-details';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { Camera } from '@ionic-native/camera';
@@ -16,6 +14,7 @@ import { WheelSelector } from '@ionic-native/wheel-selector';
 import { TabsPage } from '../pages/tabs/tabs';
 import { SettingsPagePage } from '../pages/settings/settings';
 import { IonicStorageModule } from '@ionic/storage';
+import { ChatboxPagePage } from '../pages/chatbox/chatbox';
 @NgModule({
   declarations: [
     MyApp,
@@ -23,10 +22,9 @@ import { IonicStorageModule } from '@ionic/storage';
     LoginPage,
     RegisterPage,
     ForgotPassPage,
-    ImgEditPage,
-    ImgDetailsPagePage,
     ReportPagePage,
     SettingsPagePage,
+    ChatboxPagePage,
     TabsPage
   ],
   imports: [
@@ -40,9 +38,8 @@ import { IonicStorageModule } from '@ionic/storage';
     LoginPage,
     RegisterPage,
     ForgotPassPage,
-    ImgEditPage,
-    ImgDetailsPagePage,
     ReportPagePage,
+    ChatboxPagePage,
     SettingsPagePage,
     TabsPage
   ],
