@@ -1,7 +1,0 @@
-{
-  "name": "EpicStarter",
-  "integrations": {
-    "cordova": {}
-  },
-  "type": "ionic-angular"
-}
